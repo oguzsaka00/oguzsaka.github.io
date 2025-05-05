@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Arkadaşlarım | Benim Web Sitesim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --transition-speed: 0.3s;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .page-load {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            margin: 0.25rem 0.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        nav a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .active {
+            background-color: var(--accent-color) !important;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            transition: all 0.8s ease;
+            position: relative;
+        }
+        
+        .section-container h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+        }
+        
+        .arkadaslar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .arkadas {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            position: relative;
+        }
+        
+        .arkadas:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .arkadas-img-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .arkadas img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .arkadas:hover img {
+            transform: scale(1.05);
+        }
+        
+        .arkadas-detay {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .arkadas h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .arkadas p {
+            color: #777;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .arkadas-sosyal {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .arkadas-sosyal a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .arkadas-sosyal a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .arkadas-etiket {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .footer-nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Animasyonlar */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .slide-down {
+            animation: slideDown 0.6s ease forwards;
+        }
+        
+        .scale-in {
+            animation: scaleIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Duyarlı Tasarım */
+        @media (max-width: 1200px) {
+            .arkadaslar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                background-color: transparent;
+            }
+            
+            nav a {
+                width: 90%;
+                margin: 0.25rem 0;
+                justify-content: center;
+            }
+            
+            .arkadaslar-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-load">
+
+<header>
+    <h1>Benim Web Sitesim</h1>
+    <nav class="slide-down">
+        <a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a>
+        <a href="hobilerim.html"><i class="fas fa-gamepad"></i> Hobilerim</a>
+        <a href="arkadaslarim.html" class="active"><i class="fas fa-users"></i> Arkadaşlarım</a>
+        <a href="ozgecmis.html"><i class="fas fa-briefcase"></i> Özgeçmiş</a>
+        <a href="memleket.html"><i class="fas fa-map-marked-alt"></i> Memleketim</a>
+    </nav>
+</header>
+
+<div class="container section-container scale-in">
+    <h2>Arkadaşlarım</h2>
+    
+    <div class="arkadaslar-grid">
+        <div class="arkadas slide-up" style="animation-delay: 0.1s;">
+            <div class="arkadas-etiket">En Yakın</div>
+            <div class="arkadas-img-container">
+                <img src="images/huseyin.jpg" alt="Hüseyin Kazdal">
+            </div>
+            <div class="arkadas-detay">
+                <h3>Hüseyin Kazdal</h3>
+                <p>Yaratıcılığıyla öne çıkan, pozitif ve neşeli kişiliğiyle çevresine ilham veren bir grafik tasarımcıdır. Motosiklet tutkusu sayesinde özgürlüğü ve dinamizmi yaşamının merkezine almıştır.</p>
+                <div class="arkadas-sosyal">
+                    <a href="https://www.instagram.com/kazdal.jpg/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arkadas slide-up" style="animation-delay: 0.3s;">
+            <div class="arkadas-img-container">
+                <img src="images/ozgur.jpg" alt="Özgür Çatalkaya">
+            </div>
+            <div class="arkadas-detay">
+                <h3>Özgür Çatalkaya</h3>
+                <p>Aktif yaşam tarzını benimsemiş, bisiklet sürmeye tutkuyla bağlı bir elektrik mühendisliği öğrencisidir. Vücut geliştirme, yürüyüş ve doğa gezileriyle hem fiziksel hem zihinsel sağlığına önem verir.</p>
+                <div class="arkadas-sosyal">
+                    <a href="https://www.instagram.com/ozgur_catalkaya/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arkadas slide-up" style="animation-delay: 0.5s;">
+            <div class="arkadas-img-container">
+                <img src="images/aleyna.jpg" alt="Aleyna Nur Yılmaz">
+            </div>
+            <div class="arkadas-detay">
+                <h3>Aleyna Nur Yılmaz</h3>
+                <p>Güncel yaşamı takip etmeyi seven, gezmekten ve alışverişten keyif alan, kendine özen göstermeyi yaşam tarzı haline getirmiş bir psikoloji öğrencisidir. Akademik alanda başarılı olup, hem kişisel gelişimine hem de eğitimine önem vermektedir.</p>
+                <div class="arkadas-sosyal">
+                    <a href="https://www.instagram.com/aleylmz.2/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arkadas slide-up" style="animation-delay: 0.7s;">
+            <div class="arkadas-img-container">
+                <img src="images/feyza.jpg" alt="Feyza Buse Duğancı">
+            </div>
+            <div class="arkadas-detay">
+                <h3>Feyza Buse Duğancı</h3>
+                <p>Feyza, paramedik öğrencisi olmasının yanında süsüne düşkün, her zaman bakımlı ve özenli biridir. Güzel bir yemeğe ya da keyifli bir kahveye asla hayır diyemez. Derslerine de oldukça önem verir, çalışkanlığıyla tam bir denge ustasıdır.</p>
+                <div class="arkadas-sosyal">
+                    <a href="https://www.instagram.com/feyzadgncii/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>Benimle İletişime Geçin</p>
+        <div class="footer-nav">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="hobilerim.html">Hobilerim</a>
+            <a href="arkadaslarim.html">Arkadaşlarım</a>
+            <a href="ozgecmis.html">Özgeçmiş</a>
+            <a href="memleket.html">Memleketim</a>
+        </div>
+        <div class="copyright">© 2025 Benim Web Sitesim. Tüm hakları saklıdır.</div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sayfa yüklendiğinde animasyonları başlat
+        setTimeout(() => {
+            const arkadasCards = document.querySelectorAll('.arkadas');
+            arkadasCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+                }, 100 * index);
+            });
+        }, 300);
+        
+        // Scroll animasyonları için
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.section-container').forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
+</body>
+</html>

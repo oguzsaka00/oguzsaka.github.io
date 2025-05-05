@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Oğuz | Kişisel Web Sitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --text-color: #333;
+            --bg-color: #f5f8fa;
+            --card-bg: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --text-color: #e2e2e2;
+            --primary-color: #4d9be6;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-load {
+            animation: fadeIn 1s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+
+        /* CARDS SECTION */
+        #cards {
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        #cards.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .card:hover i {
+            transform: scale(1.2);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            margin-bottom: 25px;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        body.dark-mode .card p {
+            color: #aaa;
+        }
+
+        .card-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s forwards;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* THEME TOGGLE */
+        .theme-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-btn .icon-moon,
+        .theme-btn .icon-sun {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .theme-btn.active {
+            background-color: #f1c40f;
+            color: #333;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            margin-top: 50px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* SOCIAL MEDIA */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            transition: var(--transition);
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* SCROLL DOWN INDICATOR */
+        .scroll-down {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .scroll-down span {
+            margin-bottom: 10px;
+        }
+
+        .scroll-indicator {
+            width: 30px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: scrollAnim 2s infinite;
+        }
+
+        @keyframes scrollAnim {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-content {
+                padding: 30px;
+                width: 90%;
+            }
+
+            .scroll-down {
+                display: none;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .theme-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .card i {
+                font-size: 2.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-load">
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Selam, Ben <span style="color: var(--accent-color);">Oğuz</span></h1>
+            <p>Kişisel web siteme hoş geldiniz!</p>
+            <div class="social-links">
+                <a href="https://x.com/Oguzsk20" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/oguzsaka00/" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@oguzsaka1987" title="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://github.com/oguzsaka00" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <a href="#cards" class="hero-btn" id="start-button">Keşfetmeye Başla <i class="fas fa-rocket"></i></a>
+        </div>
+        <div class="scroll-down">
+            <span>Aşağı Kaydır</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </header>
+
+    <section id="cards" class="hidden">
+        <div class="card" data-index="0">
+            <i class="fas fa-gamepad"></i>
+            <h2>Hobilerim</h2>
+            <p>Boş zamanlarımda keyif aldığım etkinlikler, oyunlar ve tutkulu olduğum hobiler burada.</p>
+            <a href="hobilerim.html" class="card-link">Daha Fazlası <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card" data-index="1">
+            <i class="fas fa-users"></i>
+            <h2>Arkadaşlarım</h2>
+            <p>Hayatıma değer katan, birlikte büyüdüğüm ve geliştiğim harika dostlarım hakkında bilgi edinebilirsin.</p>
+            <a href="arkadaslarim.html" class="card-link">Daha Fazlası <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card" data-index="2">
+            <i class="fas fa-briefcase"></i>
+            <h2>Özgeçmiş</h2>
+            <p>Eğitim hayatım, iş deneyimlerim ve becerilerim hakkında detaylı bilgilere buradan ulaşabilirsin.</p>
+            <a href="ozgecmis.html" class="card-link">Daha Fazlası <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card" data-index="3">
+            <i class="fas fa-map-marked-alt"></i>
+            <h2>Memleketim</h2>
+            <p>Doğup büyüdüğüm, kültürel zenginliklere sahip memleketim hakkında bilgiler ve fotoğraflar.</p>
+            <a href="memleket.html" class="card-link">Daha Fazlası <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <button id="theme-toggle" class="theme-btn">
+        <span class="icon-moon">🌙</span>
+        <span class="text">Gece Modu</span>
+    </button>
+
+    <footer>
+        <p>&copy; 2025 Oğuz | Tüm Hakları Saklıdır</p>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerHTML = '<span class="icon-sun">🌞</span><span class="text">Aydınlık Mod</span>';
+                themeToggle.classList.add('active');
+            } else {
+                themeToggle.innerHTML = '<span class="icon-moon">🌙</span><span class="text">Gece Modu</span>';
+                themeToggle.classList.remove('active');
+            }
+        });
+        
+        // Smooth scroll functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // If it's the start button, show cards
+                    if (this.id === 'start-button') {
+                        setTimeout(() => {
+                            showCardsSection();
+                            showCardsSequentially();
+                        }, 600);
+                    }
+                }
+            });
+        });
+        
+        // Show cards section
+        function showCardsSection() {
+            const cardsSection = document.getElementById('cards');
+            cardsSection.classList.add('visible');
+        }
+        
+        // Show cards sequentially
+        function showCardsSequentially() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('slide-up');
+                }, index * 200);
+            });
+        }
+        
+        // Scroll reveal functionality
+        window.addEventListener('scroll', function() {
+            const cardsSection = document.getElementById('cards');
+            const cardsSectionPosition = cardsSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (cardsSectionPosition < screenPosition) {
+                showCardsSection();
+                showCardsSequentially();
+                // Remove the event listener once animation is triggered
+                window.removeEventListener('scroll', arguments.callee);
+            }
+        });
+        
+        // Initialize page
+        window.addEventListener("load", function() {
+            // Check if user prefers dark mode
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<span class="icon-sun">🌞</span><span class="text">Aydınlık Mod</span>';
+                themeToggle.classList.add('active');
+            }
+            
+            // If viewing a sub-page, show sections
+            const sections = document.querySelectorAll('.section-container');
+            if (sections.length > 0) {
+                sections.forEach(section => {
+                    setTimeout(() => {
+                        section.classList.remove('hidden');
+                    }, 100);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

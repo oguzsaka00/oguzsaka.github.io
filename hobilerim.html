@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hobilerim | Benim Web Sitesim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --transition-speed: 0.3s;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 249, 250, 0.9);
+            z-index: -1;
+        }
+        .page-load {
+            animation: fadeIn 1s ease-in-out;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            margin: 0.25rem 0.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.1);
+        }
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        nav a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        .active {
+            background-color: var(--accent-color) !important;
+            font-weight: 600;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .section-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: all 0.8s ease;
+            position: relative;
+        }
+        .section-container h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            position: relative;
+        }
+        .section-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background-color: var(--accent-color);
+            animation: expandWidth 2s infinite alternate;
+        }
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 40%; }
+        }
+        .hobi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .hobi-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+            position: relative;
+        }
+        .hobi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        .hobi-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .hobi-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .hobi-card:hover .hobi-img img {
+            transform: scale(1.08);
+        }
+        .hobi-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .hobi-card:hover .hobi-overlay {
+            opacity: 1;
+        }
+        .hobi-content {
+            padding: 1.5rem;
+            position: relative;
+        }
+        .hobi-icon {
+            position: absolute;
+            top: -25px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .hobi-card:hover .hobi-icon {
+            transform: rotate(360deg);
+            background-color: var(--accent-color);
+        }
+        .hobi-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        .hobi-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .hobi-details {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .hobi-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .hobi-detail i {
+            color: var(--primary-color);
+        }
+        .hobi-tag {
+            display: inline-block;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .hobi-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .hobi-progress {
+            margin-top: 1rem;
+        }
+        .progress-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+            position: relative;
+            transition: width 1.5s ease;
+        }
+        .quote-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--secondary-color);
+            position: relative;
+            padding: 1.5rem;
+        }
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.2;
+            color: var(--primary-color);
+        }
+        .quote::before {
+            top: -20px;
+            left: 0;
+        }
+        .quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+        .quote-author {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            height: 200px;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        .hobi-video {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .footer-nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-nav a:hover {
+            color: white;
+        }
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+        /* Animasyonlar */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        .slide-up {
+            animation: slideUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .slide-down {
+            animation: slideDown 0.6s ease forwards;
+        }
+        .scale-in {
+            animation: scaleIn 0.8s ease forwards;
+        }
+        .rotate-in {
+            animation: rotateIn 0.8s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes scaleIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes rotateIn {
+            from { 
+                opacity: 0;
+                transform: rotate(-180deg) scale(0.5);
+            }
+            to { 
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+        /* Duyarlı Tasarım */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                background-color: transparent;
+            }
+            nav a {
+                width: 90%;
+                margin: 0.25rem 0;
+                justify-content: center;
+            }
+            .hobi-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="page-load">
+<header>
+    <h1>Benim Web Sitesim</h1>
+    <nav class="slide-down">
+        <a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a>
+        <a href="hobilerim.html" class="active"><i class="fas fa-gamepad"></i> Hobilerim</a>
+        <a href="arkadaslarim.html"><i class="fas fa-users"></i> Arkadaşlarım</a>
+        <a href="ozgecmis.html"><i class="fas fa-briefcase"></i> Özgeçmiş</a>
+        <a href="memleket.html"><i class="fas fa-map-marked-alt"></i> Memleketim</a>
+    </nav>
+</header>
+<div class="container section-container scale-in">
+    <h2>Hobilerim</h2>
+    <div class="quote-section slide-up">
+        <div class="quote">"Tutkularınızı takip edin, onlar sizin gerçek mutluluğunuzun anahtarıdır."</div>
+        <div class="quote-author">— Konfüçyus</div>
+    </div>
+    <div class="hobi-grid">
+        <div class="hobi-card slide-up" style="animation-delay: 0.1s;">
+            <div class="hobi-img">
+                <img src="images/photography.jpg" alt="Fotoğraf Çekme">
+                <div class="hobi-overlay"></div>
+            </div>
+            <div class="hobi-content">
+                <div class="hobi-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>Fotoğraf Çekme</h3>
+                <p>Fotoğraf çekmek beni çok mutlu eder. Her gün yeni bir manzarayı yakalamaya çalışırım. Doğa ve şehir fotoğrafçılığı özellikle ilgimi çekiyor.</p>
+                <div class="hobi-details">
+                    <div class="hobi-detail">
+                        <i class="fas fa-clock"></i>
+                        <span>5 yıldır ilgileniyorum</span>
+                    </div>
+                    <div class="hobi-detail">
+                        <i class="fas fa-camera-retro"></i>
+                        <span>İphone 11 Kullanıyorum</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="hobi-tag">#Doğa</span>
+                    <span class="hobi-tag">#Manzara</span>
+                    <span class="hobi-tag">#Portre</span>
+                </div>
+                <div class="hobi-progress">
+                    <div class="progress-title">
+                        <span>Tecrübe Seviyesi</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="hobi-card slide-up" style="animation-delay: 0.3s;">
+            <div class="hobi-img">
+                <img src="images/gaming.jpg" alt="Bilgisayar Oyunları">
+                <div class="hobi-overlay"></div>
+            </div>
+            <div class="hobi-content">
+                <div class="hobi-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>Bilgisayar Oyunları</h3>
+                <p>Oyun oynamaktan çok keyif alırım. Özellikle strateji oyunlarını severim. Uzun saatler boyunca taktik düşünmek ve strateji kurmak benim için bir tutku.</p>
+                <div class="hobi-details">
+                    <div class="hobi-detail">
+                        <i class="fas fa-trophy"></i>
+                        <span>Şuanlık derecem yok</span>
+                    </div>
+                    <div class="hobi-detail">
+                        <i class="fas fa-clock"></i>
+                        <span>Haftada 10 saat oyun oynuyorum</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="hobi-tag">#Strateji</span>
+                    <span class="hobi-tag">#Savaş</span>
+                    <span class="hobi-tag">#Geliştirici</span>
+                </div>
+                <div class="hobi-progress">
+                    <div class="progress-title">
+                        <span>Tecrübe Seviyesi</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+        <div class="hobi-card slide-up" style="animation-delay: 0.5s;">
+            <div class="hobi-img">
+                <img src="images/reading.jpg" alt="Kitap Okuma">
+                <div class="hobi-overlay"></div>
+            </div>
+            <div class="hobi-content">
+                <div class="hobi-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Kitap Okuma</h3>
+                <p>Kitap okumayı çok severim. Farklı dünyalara yolculuk yapmak ve yeni bilgiler öğrenmek beni geliştirir. Bilim kurgu ve polisiye kitapları favori türlerim.</p>
+                <div class="hobi-details">
+                    <div class="hobi-detail">
+                        <i class="fas fa-book-open"></i>
+                        <span>Yılda ortalama 10+ kitap okuyorum</span>
+                    </div>
+                    <div class="hobi-detail">
+                        <i class="fas fa-bookmark"></i>
+                        <span>50+ kitaplık koleksiyonum var</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="hobi-tag">#BilimKurgu</span>
+                    <span class="hobi-tag">#Alman Klasikleri</span>
+                    <span class="hobi-tag">#Polisiye</span>
+                </div>
+                <div class="hobi-progress">
+                    <div class="progress-title">
+                        <span>Okuma Hızı</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="hobi-card slide-up" style="animation-delay: 0.7s;">
+            <div class="hobi-img">
+                <img src="images/travel.jpg" alt="Seyahat">
+                <div class="hobi-overlay"></div>
+            </div>
+            <div class="hobi-content">
+                <div class="hobi-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h3>Seyahat</h3>
+                <p>Yeni yerler keşfetmek ve farklı kültürleri tanımak için seyahat etmeyi çok severim. Her yıl mutlaka yeni bir şehir ziyaret etmeye çalışırım.</p>
+                <div class="hobi-details">
+                    <div class="hobi-detail">
+                        <i class="fas fa-globe-americas"></i>
+                        <span>12 şehir gezdim</span>
+                    </div>
+                    <div class="hobi-detail">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>En sevdiğim rota: Karadeniz</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="hobi-tag">#Seyahat</span>
+                    <span class="hobi-tag">#Keşif</span>
+                    <span class="hobi-tag">#Macera</span>
+                </div>
+                <div class="hobi-progress">
+                    <div class="progress-title">
+                        <span>Gezi Planlaması</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    <h2>Fotoğraf Galerim</h2>
+    <div class="gallery">
+        <div class="gallery-item fade-in" style="animation-delay: 0.1s;">
+            <img src="images/gallery/photo1.jpg" alt="Fotoğraf 1">
+            <div class="gallery-caption">Viaport Awm</div>
+        </div>
+        <div class="gallery-item fade-in" style="animation-delay: 0.2s;">
+            <img src="images/gallery/photo2.jpg" alt="Fotoğraf 2">
+            <div class="gallery-caption">Nusretiye Cami</div>
+        </div>
+        <div class="gallery-item fade-in" style="animation-delay: 0.3s;">
+            <img src="images/gallery/photo3.jpg" alt="Fotoğraf 3">
+            <div class="gallery-caption">Akçakocada Kar Manzarası</div>
+        </div>
+        <div class="gallery-item fade-in" style="animation-delay: 0.4s;">
+            <img src="images/gallery/photo4.jpg" alt="Fotoğraf 4">
+            <div class="gallery-caption">Siyasal Bilgiler Manzarası</div>
+        </div>
+        <div class="gallery-item fade-in" style="animation-delay: 0.5s;">
+            <img src="images/gallery/photo5.jpg" alt="Fotoğraf 5">
+            <div class="gallery-caption">Millet Bahçesi Gölü </div>
+        </div>
+        <div class="gallery-item fade-in" style="animation-delay: 0.6s;">
+            <img src="images/gallery/photo6.jpg" alt="Fotoğraf 6">
+            <div class="gallery-caption">Kadıköy Sahil</div>
+        </div>
+    </div>
+    <h2>Video Galerim</h2>
+    <div class="hobi-video scale-in">
+        <video width="100%" controls>
+            <source src="videos/hobi-video.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+    </div>
+</div>
+<footer>
+    <div class="footer-content">
+        <p>Benimle İletişime Geçin</p>
+        <div class="footer-nav">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="hobilerim.html">Hobilerim</a>
+            <a href="arkadaslarim.html">Arkadaşlarım</a>
+            <a href="ozgecmis.html">Özgeçmiş</a>
+            <a href="memleket.html">Memleketim</a>
+        </div>
+        <div class="copyright">© 2025 Benim Web Sitesim. Tüm hakları saklıdır.</div>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Animasyonları başlat
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        // Kartlar için geciktirmeli animasyon
+        document.querySelectorAll('.hobi-card').forEach((card, index) => {
+            setTimeout(() => {
+                observer.observe(card);
+            }, index * 200); // 200ms aralıkla animasyon
+        });
+    });
+</script>
+</body>
+</html>

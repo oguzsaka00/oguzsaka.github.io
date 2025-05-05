@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Özgeçmiş | Benim Web Sitesim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #dbeafe;
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --background: #f9fafb;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .page-load {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            z-index: 0;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            position: relative;
+            z-index: 1;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        nav a i {
+            font-size: 1.1rem;
+        }
+
+        .slide-down {
+            animation: slideDown 0.6s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-container {
+            opacity: 1;
+            transition: var(--transition);
+        }
+
+        .section-container.hidden {
+            opacity: 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resume-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .resume-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .resume-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .resume-card h3 i {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .resume-timeline {
+            margin-top: 1rem;
+        }
+
+        .timeline-item {
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            color: var(--light-text);
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 0.7rem 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .skill-level {
+            margin-top: 1.5rem;
+        }
+
+        .skill-progress {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-progress span {
+            width: 120px;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .certificates-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .certificate-item {
+            background-color: var(--accent-color);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .certificate-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .certificate-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .certificate-info p {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                gap: 0.5rem;
+            }
+
+            .resume-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="page-load">
+
+    <header>
+        <h1>Benim Web Sitesim</h1>
+        <nav class="slide-down">
+            <a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a>
+            <a href="hobilerim.html"><i class="fas fa-gamepad"></i> Hobilerim</a>
+            <a href="arkadaslarim.html"><i class="fas fa-users"></i> Arkadaşlarım</a>
+            <a href="ozgecmis.html"><i class="fas fa-briefcase"></i> Özgeçmiş</a>
+            <a href="memleket.html"><i class="fas fa-map-marked-alt"></i> Memleketim</a>
+        </nav>
+    </header>
+
+    <div class="container section-container">
+        <h2>Özgeçmiş</h2>
+
+        <div class="resume-grid">
+            <div class="resume-card slide-up">
+                <h3><i class="fas fa-graduation-cap"></i> Eğitim</h3>
+                <div class="resume-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 -  &  </div>
+                        <div class="timeline-title">Bilgisayar Programcılığı</div>
+                        <div class="timeline-description">Düzce Üninersitesi , Düzce</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 - 2023</div>
+                        <div class="timeline-title">Anadolu Lisesi</div>
+                        <div class="timeline-description">Atışalanı Anadolu Lisesi, İstanbul</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-card slide-up">
+                <h3><i class="fas fa-briefcase"></i> Deneyim</h3>
+                <div class="resume-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025 Mayıs </div>
+                        <div class="timeline-title">Kendi portfolyo web sitem</div>
+                        <div class="timeline-description">Kendi web sitemi tasarladım . HTML ve CSS kullanarak mobil uyumlu, sade ve etkili bir tasarım oluşturdum.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 Aralık</div>
+                        <div class="timeline-title"> Masaüstü uygulaması</div>
+                        <div class="timeline-description">Uygulamada maç sonucunu kimin kazanacağı hedeflendi. Projede (C#) kullanıldı.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-card slide-up">
+                <h3><i class="fas fa-laptop-code"></i> Beceriler</h3>
+                <div class="skills-list">
+                    <div class="skill-item">HTML5</div>
+                    <div class="skill-item">CSS</div>
+                    <div class="skill-item">C#</div> 
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Python</div>
+                </div>
+
+                <div class="skill-level">
+                    <div class="skill-progress">
+                        <span>Frontend</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <span>Backend</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <span>Design</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-card slide-up">
+                <h3><i class="fas fa-certificate"></i> Sertifikalar</h3>
+                <div class="certificates-list">
+                    <div class="certificate-item">
+                        <i class="fab fa-react"></i>
+                        <div class="certificate-info">
+                            <h4>A1 English</h4>
+                            <p>Public Education Center , 2025</p>
+                        </div>
+                    </div>
+                    <div class="certificate-item">
+                        <i class="fab fa-python"></i>
+                        <div class="certificate-info">
+                            <h4>Hygiene certificate</h4>
+                            <p>Public Education Center, 2023</p>
+                        </div>
+                    </div>
+                    <div class="certificate-item">
+                        <i class="fas fa-sitemap"></i>
+                        <div class="certificate-info">
+                            <h4>Veri Yapıları ve Algoritmalar</h4>
+                            <p>Microsoft Learn, 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-card slide-up">
+                <h3><i class="fas fa-address-card"></i> İletişim</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>oguzsaka84@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+90 553 728 3628</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>İstanbul, Türkiye</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Benim Web Sitesim - Tüm Hakları Saklıdır</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Animasyon için elementleri seç
+            const sections = document.querySelectorAll('.section-container');
+            
+            if (sections.length > 0) {
+                sections.forEach(section => {
+                    setTimeout(() => {
+                        section.classList.remove('hidden');
+                    }, 200);
+                });
+            }
+            
+            // Skill bar animasyonu
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            setTimeout(() => {
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = "0";
+                    
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 300);
+                });
+            }, 800);
+        });
+    </script>
+</body>
+</html>
