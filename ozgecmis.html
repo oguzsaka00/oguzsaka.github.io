@@ -8,11 +8,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
             --accent-color: #dbeafe;
+            --accent-color2: #e74c3c;
+
             --text-color: #1f2937;
-            --light-text: #6b7280;
+            --dark-color: #34495e;
+            --light-color: #ecf0f1;
             --background: #f9fafb;
             --card-bg: #ffffff;
             --border-radius: 12px;
@@ -74,16 +77,22 @@
             margin-bottom: 1.5rem;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
+        
         nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem 2rem;
-            position: relative;
-            z-index: 1;
-            padding: 0.5rem;
-        }
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    position: relative;
+    z-index: 1;
+    padding: 0.5rem;
+
+    /* EKLENMESİ GEREKENLER: */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 
         nav a {
             color: white;
@@ -98,14 +107,20 @@
         }
 
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255,255,255,0.);
             transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
         }
 
         nav a i {
             font-size: 1.1rem;
         }
+        .active2 {
+    background-color: var(--accent-color2) !important;
+    font-weight: 600;
+}
 
+       
         .slide-down {
             animation: slideDown 0.6s ease forwards;
         }
@@ -403,12 +418,12 @@
 <body class="page-load">
 
     <header>
-        <h1>Benim Web Sitesim</h1>
+        <h1>Benim Web Sitem</h1>
         <nav class="slide-down">
             <a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a>
             <a href="hobilerim.html"><i class="fas fa-gamepad"></i> Hobilerim</a>
             <a href="arkadaslarim.html"><i class="fas fa-users"></i> Arkadaşlarım</a>
-            <a href="ozgecmis.html"><i class="fas fa-briefcase"></i> Özgeçmiş</a>
+            <a href="ozgecmis.html" class="active2"><i class="fas fa-users"></i> Özgeçmiş</a>
             <a href="memleket.html"><i class="fas fa-map-marked-alt"></i> Memleketim</a>
         </nav>
     </header>
@@ -528,7 +543,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Benim Web Sitesim - Tüm Hakları Saklıdır</p>
+        <p>© 2025 Benim Web Sitem - Tüm Hakları Saklıdır</p>
     </footer>
 
     <script>
