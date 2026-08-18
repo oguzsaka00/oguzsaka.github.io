@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Hakkımda | Oğuz Saka</title>
+
+    <meta
+        name="description"
+        content="Oğuz Saka hakkında bilgiler, eğitim hayatı, staj deneyimi, teknik ilgi alanları ve kariyer hedefleri."
+    >
+
+    <meta
+        name="author"
+        content="Oğuz Saka"
+    >
+
+    <meta
+        property="og:title"
+        content="Hakkımda | Oğuz Saka"
+    >
+
+    <meta
+        property="og:description"
+        content="Oğuz Saka'nın eğitim hayatı, deneyimleri ve yazılım geliştirme yolculuğu."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="favicon.svg"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           ABOUT PAGE SPECIAL STYLES
+        ====================================================== */
+
+        .about-profile-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .about-profile-content h2 {
+            margin-bottom: 18px;
+        }
+
+        .about-profile-content p {
+            max-width: 780px;
+        }
+
+        .about-profile-badge {
+            width: 130px;
+            height: 130px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            color: #fff;
+            font-size: 3rem;
+            font-weight: 800;
+            box-shadow: 0 20px 45px rgba(0,0,0,.12);
+        }
+
+        .about-profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 22px;
+        }
+
+        .about-profile-tags span {
+            padding: 8px 13px;
+            border-radius: 999px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           TIMELINE
+        ====================================================== */
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 22px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            color: #fff;
+            font-size: .75rem;
+            border: 5px solid var(--bg);
+            z-index: 2;
+        }
+
+        .timeline-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--card);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 45px rgba(0,0,0,.08);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .04em;
+        }
+
+        .timeline-card h3 {
+            margin-bottom: 6px;
+        }
+
+        .timeline-place {
+            margin-bottom: 14px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .timeline-card p {
+            color: var(--text-light);
+        }
+
+
+        /* =====================================================
+           SKILL CARDS
+        ====================================================== */
+
+        .skill-card {
+            text-align: left;
+        }
+
+        .skill-card .project-icon {
+            margin-bottom: 18px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           PERSONAL VALUES
+        ====================================================== */
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .value-card {
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--card);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 45px rgba(0,0,0,.08);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            background: var(--bg-soft);
+            color: var(--primary);
+            font-size: 1.15rem;
+        }
+
+        .value-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            font-size: .92rem;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           SOCIAL LINKS
+        ====================================================== */
+
+        .about-socials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .about-socials a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            text-decoration: none;
+            font-size: .82rem;
+            font-weight: 700;
+            transition: all .25s ease;
+        }
+
+        .about-socials a:hover {
+            transform: translateY(-3px);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 800px) {
+
+            .about-profile-card {
+                grid-template-columns: 1fr;
+            }
+
+            .about-profile-badge {
+                width: 95px;
+                height: 95px;
+                font-size: 2.2rem;
+                border-radius: 24px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .timeline::before {
+                left: 16px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+
+            .timeline-dot {
+                left: 2px;
+            }
+
+            .timeline-card {
+                padding: 22px;
+            }
+
+            .about-socials a {
+                flex: 1 1 calc(50% - 12px);
+                justify-content: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="nav-container">
+
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <span>O</span>
+
+                Oğuz Saka
+
+            </a>
+
+
+            <nav
+                class="navbar"
+                id="navbar"
+            >
+
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+
+                    <i class="fas fa-house"></i>
+
+                    Ana Sayfa
+
+                </a>
+
+
+                <a
+                    href="hakkimda.html"
+                    class="nav-link active"
+                >
+
+                    <i class="fas fa-user"></i>
+
+                    Hakkımda
+
+                </a>
+
+
+                <a
+                    href="projelerim.html"
+                    class="nav-link"
+                >
+
+                    <i class="fas fa-code"></i>
+
+                    Projelerim
+
+                </a>
+
+
+                <a
+                    href="ozgecmis.html"
+                    class="nav-link"
+                >
+
+                    <i class="fas fa-file-lines"></i>
+
+                    Özgeçmiş
+
+                </a>
+
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Tema değiştir"
+                    title="Tema değiştir"
+                >
+
+                    <i class="fas fa-moon"></i>
+
+                </button>
+
+
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Menüyü aç"
+                    aria-expanded="false"
+                >
+
+                    <i class="fas fa-bars"></i>
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="page-main">
+
+
+        <!-- =================================================
+             PAGE HERO
+        ================================================== -->
+
+        <section class="page-hero">
+
+            <div class="container">
+
+
+                <span class="section-label">
+
+                    BEN KİMİM?
+
+                </span>
+
+
+                <h1>
+
+                    Hakkımda
+
+                </h1>
+
+
+                <p>
+
+                    Eğitimim, deneyimlerim, ilgi alanlarım ve
+                    yazılım geliştirme yolculuğum.
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFILE
+        ================================================== -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+                <div class="content-card about-profile-card reveal">
+
+
+                    <div class="about-profile-content">
+
+
+                        <span class="section-label">
+
+                            MERHABA
+
+                        </span>
+
+
+                        <h2>
+
+                            Ben
+
+                            <span
+                                style="
+                                    color: transparent;
+                                    background: linear-gradient(
+                                        135deg,
+                                        var(--primary),
+                                        var(--secondary)
+                                    );
+                                    background-clip: text;
+                                    -webkit-background-clip: text;
+                                "
+                            >
+
+                                Oğuz Saka
+
+                            </span>
+
+                        </h2>
+
+
+                        <p>
+
+                            Bilgisayar Programcılığı alanında eğitim
+                            almış, yazılım geliştirme konusunda kendisini
+                            sürekli geliştirmeye çalışan bir geliştiriciyim.
+
+                        </p>
+
+
+                        <p>
+
+                            Yazılım dünyasında özellikle uygulama
+                            geliştirme, problem çözme ve yeni teknolojiler
+                            öğrenme konularına ilgi duyuyorum.
+
+                        </p>
+
+
+                        <p>
+
+                            Eğitim hayatımın yanında gerçek bir iş
+                            ortamında deneyim kazanmak amacıyla
+                            Apekta Yazılım'da Business Central stajı
+                            gerçekleştirdim.
+
+                        </p>
+
+
+                        <div class="about-profile-tags">
+
+
+                            <span>
+                                C#
+                            </span>
+
+
+                            <span>
+                                Python
+                            </span>
+
+
+                            <span>
+                                C++
+                            </span>
+
+
+                            <span>
+                                SQL
+                            </span>
+
+
+                            <span>
+                                HTML / CSS
+                            </span>
+
+
+                            <span>
+                                Business Central
+                            </span>
+
+
+                            <span>
+                                AL
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="about-profile-badge">
+
+                        O
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             WHAT I DO
+        ================================================== -->
+
+        <section class="section about-preview">
+
+
+            <div class="container">
+
+
+                <div class="section-heading center">
+
+
+                    <span class="section-label">
+
+                        NELER YAPIYORUM?
+
+                    </span>
+
+
+                    <h2>
+
+                        İlgi alanlarım ve
+
+                        <span>
+                            çalışma alanlarım
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Yazılım geliştirme sürecinde üzerinde
+                        çalıştığım temel alanlar.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="featured-project-grid">
+
+
+                    <article
+                        class="featured-project skill-card reveal"
+                    >
+
+                        <div class="project-icon">
+
+                            <i class="fas fa-laptop-code"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Yazılım Geliştirme
+
+                        </h3>
+
+
+                        <p>
+
+                            C#, Python, C++ ve diğer teknolojilerle
+                            uygulamalar geliştirmeye ve farklı
+                            programlama yaklaşımlarını öğrenmeye
+                            odaklanıyorum.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="featured-project skill-card reveal"
+                    >
+
+                        <div class="project-icon">
+
+                            <i class="fas fa-database"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Veri ve SQL
+
+                        </h3>
+
+
+                        <p>
+
+                            Veritabanı yapıları, SQL sorguları ve
+                            uygulamalarla veri arasındaki bağlantılar
+                            üzerine çalışıyorum.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="featured-project skill-card reveal"
+                    >
+
+                        <div class="project-icon">
+
+                            <i class="fas fa-brain"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Yapay Zeka
+
+                        </h3>
+
+
+                        <p>
+
+                            Yapay zeka teknolojilerini öğreniyor ve
+                            özellikle spor ve beslenme alanında
+                            yapay zeka destekli projeler geliştiriyorum.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="featured-project skill-card reveal"
+                    >
+
+                        <div class="project-icon">
+
+                            <i class="fas fa-building"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Business Central
+
+                        </h3>
+
+
+                        <p>
+
+                            Apekta Yazılım'daki stajım sırasında
+                            Microsoft Dynamics 365 Business Central
+                            ve AL programlama dili ile çalışma
+                            deneyimi kazandım.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="featured-project skill-card reveal"
+                    >
+
+                        <div class="project-icon">
+
+                            <i class="fas fa-puzzle-piece"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Problem Çözme
+
+                        </h3>
+
+
+                        <p>
+
+                            Karşılaştığım problemlere sistematik
+                            yaklaşmayı, araştırmayı ve çözüm
+                            üretmeyi seviyorum.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="featured-project skill-card reveal"
+                    >
+
+                        <div class="project-icon">
+
+                            <i class="fas fa-book-open"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Sürekli Öğrenme
+
+                        </h3>
+
+
+                        <p>
+
+                            Yazılım dünyasındaki gelişmeleri takip
+                            ederek yeni teknolojiler öğrenmeye ve
+                            kendimi geliştirmeye devam ediyorum.
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EDUCATION & EXPERIENCE TIMELINE
+        ================================================== -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+                <div class="section-heading center">
+
+
+                    <span class="section-label">
+
+                        YOLCULUĞUM
+
+                    </span>
+
+
+                    <h2>
+
+                        Eğitim ve
+
+                        <span>
+                            deneyim
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Bugüne kadar attığım önemli adımlar.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="timeline">
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="timeline-item reveal">
+
+
+                        <div class="timeline-dot">
+
+                            <i class="fas fa-graduation-cap"></i>
+
+                        </div>
+
+
+                        <div class="timeline-card">
+
+
+                            <span class="timeline-date">
+
+                                2024 — 2026
+
+                            </span>
+
+
+                            <h3>
+
+                                Bilgisayar Programcılığı
+
+                            </h3>
+
+
+                            <div class="timeline-place">
+
+                                Düzce Üniversitesi
+                                Akçakoca Meslek Yüksekokulu
+
+                            </div>
+
+
+                            <p>
+
+                                Bilgisayar programcılığı eğitimi
+                                kapsamında yazılım geliştirme,
+                                programlama ve bilgisayar teknolojileri
+                                üzerine eğitim aldım.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- INTERNSHIP -->
+
+                    <div class="timeline-item reveal">
+
+
+                        <div class="timeline-dot">
+
+                            <i class="fas fa-briefcase"></i>
+
+                        </div>
+
+
+                        <div class="timeline-card">
+
+
+                            <span class="timeline-date">
+
+                                HAZİRAN 2025 — AĞUSTOS 2025
+
+                            </span>
+
+
+                            <h3>
+
+                                Yazılım Stajyeri
+
+                            </h3>
+
+
+                            <div class="timeline-place">
+
+                                Apekta Yazılım
+
+                            </div>
+
+
+                            <p>
+
+                                Microsoft Dynamics 365 Business Central
+                                üzerinde geliştirme çalışmalarına katkı
+                                sağladım.
+
+                            </p>
+
+
+                            <p
+                                style="margin-top:12px;"
+                            >
+
+                                AL programlama dili ile kodlama yaptım,
+                                mevcut kodların incelenmesi ve
+                                geliştirilmesine destek oldum ve teknik
+                                dokümantasyonların hazırlanmasında
+                                görev aldım.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- HIGH SCHOOL -->
+
+                    <div class="timeline-item reveal">
+
+
+                        <div class="timeline-dot">
+
+                            <i class="fas fa-school"></i>
+
+                        </div>
+
+
+                        <div class="timeline-card">
+
+
+                            <span class="timeline-date">
+
+                                2019 — 2023
+
+                            </span>
+
+
+                            <h3>
+
+                                Anadolu Lisesi
+
+                            </h3>
+
+
+                            <div class="timeline-place">
+
+                                Atışalanı Anadolu Lisesi
+                                · İstanbul
+
+                            </div>
+
+
+                            <p>
+
+                                Lise eğitimimi tamamladım ve ardından
+                                bilgisayar programcılığı alanında
+                                yükseköğrenime devam ettim.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             WORK APPROACH
+        ================================================== -->
+
+        <section class="section about-preview">
+
+
+            <div class="container">
+
+
+                <div class="section-heading center">
+
+
+                    <span class="section-label">
+
+                        ÖZELLİKLERİM
+
+                    </span>
+
+
+                    <h2>
+
+                        Çalışma
+
+                        <span>
+                            yaklaşımım
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Bir proje geliştirirken önem verdiğim
+                        temel özellikler.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="values-grid">
+
+
+                    <div class="value-card reveal">
+
+
+                        <div class="value-icon">
+
+                            <i class="fas fa-lightbulb"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Öğrenmeye Açık
+
+                        </h3>
+
+
+                        <p>
+
+                            Yeni teknolojileri ve farklı çalışma
+                            yöntemlerini öğrenmeye istekliyim.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="value-card reveal">
+
+
+                        <div class="value-icon">
+
+                            <i class="fas fa-puzzle-piece"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Problem Çözme
+
+                        </h3>
+
+
+                        <p>
+
+                            Problemleri araştırarak analiz etmeyi
+                            ve uygulanabilir çözümler üretmeyi
+                            seviyorum.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="value-card reveal">
+
+
+                        <div class="value-icon">
+
+                            <i class="fas fa-users"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Takım Çalışması
+
+                        </h3>
+
+
+                        <p>
+
+                            Farklı fikirleri dinlemeye ve ekip
+                            içerisinde birlikte üretmeye önem veriyorum.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="value-card reveal">
+
+
+                        <div class="value-icon">
+
+                            <i class="fas fa-magnifying-glass"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Detaylara Önem
+
+                        </h3>
+
+
+                        <p>
+
+                            Geliştirdiğim projelerde detayları
+                            gözden geçirmeye ve hataları azaltmaya
+                            çalışıyorum.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="value-card reveal">
+
+
+                        <div class="value-icon">
+
+                            <i class="fas fa-arrows-rotate"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Sürekli Gelişim
+
+                        </h3>
+
+
+                        <p>
+
+                            Öğrendiklerimi projeler üzerinde
+                            uygulayarak kendimi sürekli geliştirmeye
+                            çalışıyorum.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="value-card reveal">
+
+
+                        <div class="value-icon">
+
+                            <i class="fas fa-bullseye"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Hedef Odaklı
+
+                        </h3>
+
+
+                        <p>
+
+                            Belirlediğim hedeflere ulaşmak için
+                            düzenli çalışmaya ve ilerlemeye
+                            odaklanıyorum.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CAREER GOAL
+        ================================================== -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+                <div class="content-card reveal">
+
+
+                    <div
+                        style="
+                            display:grid;
+                            grid-template-columns:auto 1fr;
+                            gap:22px;
+                            align-items:center;
+                        "
+                    >
+
+
+                        <div class="stat-icon">
+
+                            <i class="fas fa-rocket"></i>
+
+                        </div>
+
+
+                        <div>
+
+
+                            <span class="section-label">
+
+                                KARİYER HEDEFİ
+
+                            </span>
+
+
+                            <h2>
+
+                                Kendimi geliştirerek
+
+                                <span
+                                    style="
+                                        color:transparent;
+                                        background:linear-gradient(
+                                            135deg,
+                                            var(--primary),
+                                            var(--secondary)
+                                        );
+                                        background-clip:text;
+                                        -webkit-background-clip:text;
+                                    "
+                                >
+
+                                    üretmeye devam.
+
+                                </span>
+
+                            </h2>
+
+
+                            <p
+                                style="
+                                    color:var(--text-light);
+                                    max-width:800px;
+                                "
+                            >
+
+                                Yazılım geliştirme alanında deneyim
+                                kazanmak, yeni teknolojiler öğrenmek
+                                ve gerçek problemlere çözüm üreten
+                                projeler geliştirmek istiyorum.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SOCIAL LINKS
+        ================================================== -->
+
+        <section class="section about-preview">
+
+
+            <div class="container">
+
+
+                <div class="section-heading center">
+
+
+                    <span class="section-label">
+
+                        BENİ TAKİP ET
+
+                    </span>
+
+
+                    <h2>
+
+                        Dijital
+
+                        <span>
+                            dünyada ben
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Çalışmalarımı ve içeriklerimi
+                        farklı platformlarda takip edebilirsin.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="about-socials">
+
+
+                    <a
+                        href="https://github.com/oguzsaka00"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fab fa-github"></i>
+
+                        GitHub
+
+                    </a>
+
+
+                    <a
+                        href="https://www.linkedin.com/in/oğuz-saka-72a11a365"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                        LinkedIn
+
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/oguzsaka00/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fab fa-instagram"></i>
+
+                        Instagram
+
+                    </a>
+
+
+                    <a
+                        href="https://www.youtube.com/@oguzsaka1987"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fab fa-youtube"></i>
+
+                        YouTube
+
+                    </a>
+
+
+                    <a
+                        href="https://x.com/Oguzsk20"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fab fa-x-twitter"></i>
+
+                        X
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <section class="contact-cta">
+
+
+            <div class="container">
+
+
+                <div class="cta-content">
+
+
+                    <span class="section-label">
+
+                        DAHA FAZLASI
+
+                    </span>
+
+
+                    <h2>
+
+                        Yolculuğumu
+
+                        <span>
+                            birlikte takip et.
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Projelerimi inceleyebilir, özgeçmişime
+                        göz atabilir veya benimle iletişime
+                        geçebilirsin.
+
+                    </p>
+
+
+                    <div class="cta-buttons">
+
+
+                        <a
+                            href="projelerim.html"
+                            class="btn btn-light"
+                        >
+
+                            Projelerim
+
+                            <i class="fas fa-arrow-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="ozgecmis.html"
+                            class="btn btn-outline-light"
+                        >
+
+                            Özgeçmiş
+
+                            <i class="fas fa-file-lines"></i>
+
+                        </a>
+
+
+                        <a
+                            href="mailto:oguzsaka84@gmail.com"
+                            class="btn btn-outline-light"
+                        >
+
+                            İletişime Geç
+
+                            <i class="fas fa-envelope"></i>
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+
+        <div class="container footer-container">
+
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <span>O</span>
+
+                    Oğuz Saka
+
+                </a>
+
+
+                <p>
+
+                    Yazılım geliştirme yolculuğum devam ediyor.
+                    Öğrenmeye, üretmeye ve geliştirmeye devam.
+
+                </p>
+
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:10px;
+                        margin-top:16px;
+                        flex-wrap:wrap;
+                    "
+                >
+
+
+                    <a
+                        href="https://github.com/oguzsaka00"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        title="GitHub"
+                    >
+
+                        <i class="fab fa-github"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.linkedin.com/in/oğuz-saka-72a11a365"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                    >
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/oguzsaka00/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        title="Instagram"
+                    >
+
+                        <i class="fab fa-instagram"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.youtube.com/@oguzsaka1987"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="YouTube"
+                        title="YouTube"
+                    >
+
+                        <i class="fab fa-youtube"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://x.com/Oguzsk20"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="X"
+                        title="X"
+                    >
+
+                        <i class="fab fa-x-twitter"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+
+                <h4>
+                    Sayfalar
+                </h4>
+
+
+                <a href="index.html">
+                    Ana Sayfa
+                </a>
+
+
+                <a href="hakkimda.html">
+                    Hakkımda
+                </a>
+
+
+                <a href="projelerim.html">
+                    Projelerim
+                </a>
+
+
+                <a href="ozgecmis.html">
+                    Özgeçmiş
+                </a>
+
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+
+                <h4>
+                    İletişim
+                </h4>
+
+
+                <a href="mailto:oguzsaka84@gmail.com">
+                    E-posta
+                </a>
+
+
+                <a href="tel:+905537283628">
+                    Telefon
+                </a>
+
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Istanbul%2C%20Turkey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    İstanbul
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+
+            <div class="container">
+
+
+                <p>
+
+                    © 2026 Oğuz Saka.
+                    Tüm hakları saklıdır.
+
+                </p>
+
+
+                <p>
+
+                    İstanbul, Türkiye
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         SCROLL TOP
+    ====================================================== -->
+
+    <button
+        id="scroll-top"
+        class="scroll-top"
+        aria-label="Yukarı çık"
+        title="Yukarı çık"
+    >
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

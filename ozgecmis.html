@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Özgeçmiş | Oğuz Saka</title>
+
+    <meta
+        name="description"
+        content="Oğuz Saka'nın eğitim geçmişi, iş deneyimi, teknik becerileri ve projeleri."
+    >
+
+    <meta
+        name="author"
+        content="Oğuz Saka"
+    >
+
+    <meta
+        property="og:title"
+        content="Özgeçmiş | Oğuz Saka"
+    >
+
+    <meta
+        property="og:description"
+        content="Oğuz Saka'nın eğitim, deneyim, beceri ve proje bilgileri."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="favicon.svg"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <style>
+
+        /* =================================================
+           RESUME PAGE
+        ================================================= */
+
+        .resume-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+
+        .resume-card {
+
+            padding: 30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius-lg);
+
+            background:
+                var(--card);
+
+            box-shadow:
+                var(--shadow-sm);
+        }
+
+
+        .resume-card.full-width {
+
+            grid-column:
+                1 / -1;
+        }
+
+
+        .resume-card-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .resume-card-header .card-icon {
+
+            width: 46px;
+            height: 46px;
+
+            display: grid;
+
+            place-items: center;
+
+            flex-shrink: 0;
+
+            border-radius: 13px;
+
+            color:
+                var(--primary);
+
+            background:
+                rgba(37, 99, 235, 0.1);
+        }
+
+
+        .resume-card-header h2 {
+
+            margin: 0;
+
+            font-size:
+                1.2rem;
+        }
+
+
+        .resume-card-header p {
+
+            margin-top: 4px;
+
+            color:
+                var(--text-light);
+
+            font-size:
+                0.76rem;
+        }
+
+
+        /* =================================================
+           TIMELINE
+        ================================================= */
+
+        .timeline {
+
+            position: relative;
+
+            padding-left: 28px;
+        }
+
+
+        .timeline::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 4px;
+            bottom: 4px;
+
+            left: 6px;
+
+            width: 2px;
+
+            background:
+                var(--border);
+        }
+
+
+        .timeline-item {
+
+            position: relative;
+
+            padding-bottom: 30px;
+        }
+
+
+        .timeline-item:last-child {
+
+            padding-bottom: 0;
+        }
+
+
+        .timeline-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: -28px;
+
+            top: 5px;
+
+            width: 14px;
+            height: 14px;
+
+            border:
+                3px solid var(--card);
+
+            border-radius: 50%;
+
+            background:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 2px var(--primary);
+        }
+
+
+        .timeline-date {
+
+            margin-bottom: 7px;
+
+            color:
+                var(--primary);
+
+            font-size:
+                0.72rem;
+
+            font-weight: 800;
+
+            letter-spacing:
+                0.4px;
+        }
+
+
+        .timeline-title {
+
+            margin-bottom: 5px;
+
+            font-size:
+                1rem;
+
+            font-weight: 800;
+        }
+
+
+        .timeline-place {
+
+            margin-bottom: 11px;
+
+            color:
+                var(--text-light);
+
+            font-size:
+                0.82rem;
+
+            font-weight: 600;
+        }
+
+
+        .timeline-description {
+
+            color:
+                var(--text-light);
+
+            font-size:
+                0.84rem;
+
+            line-height:
+                1.7;
+        }
+
+
+        .timeline-description + .timeline-description {
+
+            margin-top: 9px;
+        }
+
+
+        /* =================================================
+           SKILLS
+        ================================================= */
+
+        .skill-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+
+        .skill-row {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+
+        .skill-info {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            font-size:
+                0.8rem;
+
+            font-weight: 700;
+        }
+
+
+        .skill-info span:last-child {
+
+            color:
+                var(--primary);
+        }
+
+
+        .skill-bar {
+
+            width: 100%;
+
+            height: 8px;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background:
+                var(--border);
+        }
+
+
+        .skill-progress {
+
+            height: 100%;
+
+            width: 0;
+
+            border-radius: inherit;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            transition:
+                width 1.2s ease;
+        }
+
+
+        .skill-progress.animate {
+
+            width:
+                var(--skill-width);
+        }
+
+
+        /* =================================================
+           TECHNOLOGIES
+        ================================================= */
+
+        .skill-chips {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+
+        .skill-chip {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                8px 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 9px;
+
+            color:
+                var(--text-light);
+
+            background:
+                var(--bg);
+
+            font-size:
+                0.77rem;
+
+            font-weight: 700;
+
+            transition:
+                var(--transition);
+        }
+
+
+        .skill-chip:hover {
+
+            color:
+                var(--primary);
+
+            border-color:
+                var(--primary);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =================================================
+           PROJECTS
+        ================================================= */
+
+        .resume-projects {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 15px;
+        }
+
+
+        .resume-project {
+
+            padding: 20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--bg);
+
+            transition:
+                var(--transition);
+        }
+
+
+        .resume-project:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(37, 99, 235, 0.3);
+
+            box-shadow:
+                var(--shadow-sm);
+        }
+
+
+        .resume-project-icon {
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin-bottom: 14px;
+
+            border-radius: 11px;
+
+            color:
+                var(--primary);
+
+            background:
+                rgba(37, 99, 235, 0.1);
+        }
+
+
+        .resume-project h3 {
+
+            margin-bottom: 7px;
+
+            font-size:
+                0.92rem;
+
+            line-height:
+                1.4;
+        }
+
+
+        .resume-project p {
+
+            color:
+                var(--text-light);
+
+            font-size:
+                0.77rem;
+
+            line-height:
+                1.6;
+        }
+
+
+        .resume-project-status {
+
+            display: inline-flex;
+
+            margin-top: 13px;
+
+            padding:
+                6px 9px;
+
+            border-radius:
+                999px;
+
+            font-size:
+                0.66rem;
+
+            font-weight:
+                800;
+
+            color:
+                #c76a00;
+
+            background:
+                rgba(245, 158, 11, 0.1);
+
+            border:
+                1px solid
+                rgba(245, 158, 11, 0.2);
+        }
+
+
+        /* =================================================
+           LANGUAGES
+        ================================================= */
+
+        .language-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 14px;
+        }
+
+
+        .language-card {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding:
+                16px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--bg);
+        }
+
+
+        .language-icon {
+
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+
+            place-items: center;
+
+            flex-shrink: 0;
+
+            border-radius: 10px;
+
+            color:
+                var(--primary);
+
+            background:
+                rgba(37, 99, 235, 0.1);
+        }
+
+
+        .language-card strong {
+
+            display: block;
+
+            margin-bottom: 3px;
+
+            font-size:
+                0.82rem;
+        }
+
+
+        .language-card span {
+
+            color:
+                var(--text-light);
+
+            font-size:
+                0.73rem;
+        }
+
+
+        /* =================================================
+           CONTACT
+        ================================================= */
+
+        .contact-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+
+        .contact-box {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding:
+                15px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            color:
+                var(--text);
+
+            background:
+                var(--bg);
+
+            transition:
+                var(--transition);
+        }
+
+
+        .contact-box:hover {
+
+            border-color:
+                var(--primary);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        .contact-box-icon {
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+
+            place-items: center;
+
+            flex-shrink: 0;
+
+            border-radius: 11px;
+
+            color:
+                var(--primary);
+
+            background:
+                rgba(37, 99, 235, 0.1);
+        }
+
+
+        .contact-box strong {
+
+            display: block;
+
+            margin-bottom: 3px;
+
+            font-size:
+                0.77rem;
+        }
+
+
+        .contact-box span {
+
+            color:
+                var(--text-light);
+
+            font-size:
+                0.72rem;
+
+            word-break:
+                break-word;
+        }
+
+
+        /* =================================================
+           CV DOWNLOAD AREA
+        ================================================= */
+
+        .cv-download-section {
+
+            margin-top: 50px;
+
+            padding:
+                42px 30px;
+
+            text-align: center;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius-lg);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.06),
+                    rgba(124, 58, 237, 0.06)
+                );
+
+            box-shadow:
+                var(--shadow-sm);
+        }
+
+
+        .cv-download-icon {
+
+            width: 62px;
+            height: 62px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin:
+                0 auto 18px;
+
+            border-radius: 17px;
+
+            color:
+                var(--primary);
+
+            background:
+                rgba(37, 99, 235, 0.1);
+
+            font-size:
+                1.4rem;
+        }
+
+
+        .cv-download-section h2 {
+
+            margin-bottom: 9px;
+
+            font-size:
+                1.35rem;
+        }
+
+
+        .cv-download-section p {
+
+            max-width: 600px;
+
+            margin:
+                0 auto 24px;
+
+            color:
+                var(--text-light);
+
+            font-size:
+                0.84rem;
+
+            line-height:
+                1.7;
+        }
+
+
+        .cv-download-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 800px) {
+
+            .resume-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .resume-card.full-width {
+
+                grid-column:
+                    auto;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .resume-projects {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .language-list {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .resume-card {
+
+                padding:
+                    22px;
+            }
+
+
+            .cv-download-section {
+
+                padding:
+                    32px 20px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .cv-download-buttons {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .cv-download-buttons .btn {
+
+                width: 100%;
+
+                justify-content:
+                    center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="nav-container">
+
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <span>O</span>
+
+                Oğuz Saka
+
+            </a>
+
+
+            <nav
+                class="navbar"
+                id="navbar"
+            >
+
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+
+                    <i class="fas fa-house"></i>
+
+                    Ana Sayfa
+
+                </a>
+
+
+                <a
+                    href="hakkimda.html"
+                    class="nav-link"
+                >
+
+                    <i class="fas fa-user"></i>
+
+                    Hakkımda
+
+                </a>
+
+
+                <a
+                    href="projelerim.html"
+                    class="nav-link"
+                >
+
+                    <i class="fas fa-code"></i>
+
+                    Projelerim
+
+                </a>
+
+
+                <a
+                    href="ozgecmis.html"
+                    class="nav-link active"
+                >
+
+                    <i class="fas fa-file-lines"></i>
+
+                    Özgeçmiş
+
+                </a>
+
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Tema değiştir"
+                    title="Tema değiştir"
+                >
+
+                    <i class="fas fa-moon"></i>
+
+                </button>
+
+
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Menüyü aç"
+                    aria-expanded="false"
+                >
+
+                    <i class="fas fa-bars"></i>
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="page-main">
+
+
+        <!-- =================================================
+             PAGE HERO
+        ================================================== -->
+
+        <section class="page-hero">
+
+            <div class="container">
+
+
+                <span class="section-label">
+
+                    KARİYER
+
+                </span>
+
+
+                <h1>
+
+                    Özgeçmiş
+
+                </h1>
+
+
+                <p>
+
+                    Eğitimim, iş deneyimim, teknik becerilerim
+                    ve geliştirdiğim projeler.
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESUME CONTENT
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="resume-grid">
+
+
+                    <!-- =====================================
+                         EXPERIENCE
+                    ====================================== -->
+
+                    <article class="resume-card reveal">
+
+
+                        <div class="resume-card-header">
+
+
+                            <div class="card-icon">
+
+                                <i class="fas fa-briefcase"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h2>
+                                    İş Deneyimi
+                                </h2>
+
+                                <p>
+                                    Profesyonel deneyimim
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="timeline">
+
+
+                            <div class="timeline-item">
+
+
+                                <div class="timeline-date">
+
+                                    HAZİRAN 2025 — AĞUSTOS 2025
+
+                                </div>
+
+
+                                <div class="timeline-title">
+
+                                    Yazılım Stajyeri
+
+                                </div>
+
+
+                                <div class="timeline-place">
+
+                                    Apekta Yazılım
+
+                                </div>
+
+
+                                <p class="timeline-description">
+
+                                    Microsoft Dynamics 365 Business
+                                    Central üzerinde geliştirme
+                                    çalışmalarına katkı sağladım.
+
+                                </p>
+
+
+                                <p class="timeline-description">
+
+                                    AL programlama dili kullanarak
+                                    kodlama çalışmalarında görev aldım.
+
+                                </p>
+
+
+                                <p class="timeline-description">
+
+                                    Business Central süreçleri kapsamında
+                                    mevcut kodların incelenmesi ve
+                                    geliştirilmesine destek oldum.
+
+                                </p>
+
+
+                                <p class="timeline-description">
+
+                                    Teknik dokümantasyonların hazırlanması
+                                    ve güncellenmesi çalışmalarına katkı
+                                    sağladım.
+
+                                </p>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         EDUCATION
+                    ====================================== -->
+
+                    <article class="resume-card reveal">
+
+
+                        <div class="resume-card-header">
+
+
+                            <div class="card-icon">
+
+                                <i class="fas fa-graduation-cap"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h2>
+                                    Eğitim
+                                </h2>
+
+                                <p>
+                                    Akademik geçmişim
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="timeline">
+
+
+                            <div class="timeline-item">
+
+
+                                <div class="timeline-date">
+
+                                    2024 — 2026
+
+                                </div>
+
+
+                                <div class="timeline-title">
+
+                                    Bilgisayar Programcılığı
+
+                                </div>
+
+
+                                <div class="timeline-place">
+
+                                    Düzce Üniversitesi
+                                    Akçakoca Meslek Yüksekokulu
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         TECHNICAL SKILLS
+                    ====================================== -->
+
+                    <article class="resume-card reveal">
+
+
+                        <div class="resume-card-header">
+
+
+                            <div class="card-icon">
+
+                                <i class="fas fa-laptop-code"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h2>
+                                    Teknik Beceriler
+                                </h2>
+
+                                <p>
+                                    Çalıştığım teknolojiler
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="skill-list">
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        Business Central
+                                    </span>
+
+                                    <span>
+                                        85%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="skill-bar">
+
+                                    <div
+                                        class="skill-progress"
+                                        style="--skill-width:85%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        C#
+                                    </span>
+
+                                    <span>
+                                        75%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="skill-bar">
+
+                                    <div
+                                        class="skill-progress"
+                                        style="--skill-width:75%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        Python
+                                    </span>
+
+                                    <span>
+                                        70%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="skill-bar">
+
+                                    <div
+                                        class="skill-progress"
+                                        style="--skill-width:70%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        SQL
+                                    </span>
+
+                                    <span>
+                                        65%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="skill-bar">
+
+                                    <div
+                                        class="skill-progress"
+                                        style="--skill-width:65%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        C++
+                                    </span>
+
+                                    <span>
+                                        60%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="skill-bar">
+
+                                    <div
+                                        class="skill-progress"
+                                        style="--skill-width:60%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        HTML / CSS
+                                    </span>
+
+                                    <span>
+                                        70%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="skill-bar">
+
+                                    <div
+                                        class="skill-progress"
+                                        style="--skill-width:70%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         TECHNOLOGIES
+                    ====================================== -->
+
+                    <article class="resume-card reveal">
+
+
+                        <div class="resume-card-header">
+
+
+                            <div class="card-icon">
+
+                                <i class="fas fa-code"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h2>
+                                    Teknolojiler
+                                </h2>
+
+                                <p>
+                                    Çalıştığım alanlar
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="skill-chips">
+
+
+                            <span class="skill-chip">
+
+                                <i class="fab fa-microsoft"></i>
+
+                                Business Central
+
+                            </span>
+
+
+                            <span class="skill-chip">
+
+                                <i class="fas fa-code"></i>
+
+                                AL
+
+                            </span>
+
+
+                            <span class="skill-chip">
+
+                                <i class="fas fa-code"></i>
+
+                                C#
+
+                            </span>
+
+
+                            <span class="skill-chip">
+
+                                <i class="fab fa-python"></i>
+
+                                Python
+
+                            </span>
+
+
+                            <span class="skill-chip">
+
+                                <i class="fas fa-terminal"></i>
+
+                                C++
+
+                            </span>
+
+
+                            <span class="skill-chip">
+
+                                <i class="fas fa-database"></i>
+
+                                SQL
+
+                            </span>
+
+
+                            <span class="skill-chip">
+
+                                <i class="fab fa-html5"></i>
+
+                                HTML
+
+                            </span>
+
+
+                            <span class="skill-chip">
+
+                                <i class="fab fa-css3-alt"></i>
+
+                                CSS
+
+                            </span>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         PROJECTS
+                    ====================================== -->
+
+                    <article
+                        class="resume-card full-width reveal"
+                    >
+
+
+                        <div class="resume-card-header">
+
+
+                            <div class="card-icon">
+
+                                <i class="fas fa-diagram-project"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h2>
+                                    Projeler
+                                </h2>
+
+                                <p>
+                                    Geliştirdiğim ve üzerinde çalıştığım
+                                    projeler
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="resume-projects">
+
+
+                            <div class="resume-project">
+
+
+                                <div class="resume-project-icon">
+
+                                    <i class="fas fa-dumbbell"></i>
+
+                                </div>
+
+
+                                <h3>
+
+                                    Yapay Zeka Destekli
+                                    Spor ve Diyet Uygulaması
+
+                                </h3>
+
+
+                                <p>
+
+                                    Kullanıcıların spor ve beslenme
+                                    süreçlerini destekleyen yapay zeka
+                                    tabanlı bir uygulama geliştiriyorum.
+
+                                </p>
+
+
+                                <span class="resume-project-status">
+
+                                    Geliştirme Aşamasında
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <div class="resume-project">
+
+
+                                <div class="resume-project-icon">
+
+                                    <i class="fas fa-globe"></i>
+
+                                </div>
+
+
+                                <h3>
+
+                                    Kişisel Web Sitesi
+
+                                </h3>
+
+
+                                <p>
+
+                                    Kişisel portföy ve özgeçmiş sitesi
+                                    geliştirdim. Web sitesinin tasarımını
+                                    ve içeriklerini kendim hazırlıyorum.
+
+                                </p>
+
+
+                                <span
+                                    class="resume-project-status"
+                                    style="
+                                        color:#059669;
+                                        background:rgba(16,185,129,.1);
+                                        border-color:rgba(16,185,129,.2);
+                                    "
+                                >
+
+                                    Geliştirilmeye Devam Ediyor
+
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         LANGUAGES
+                    ====================================== -->
+
+                    <article class="resume-card reveal">
+
+
+                        <div class="resume-card-header">
+
+
+                            <div class="card-icon">
+
+                                <i class="fas fa-language"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h2>
+                                    Diller
+                                </h2>
+
+                                <p>
+                                    Dil bilgileri
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="language-list">
+
+
+                            <div class="language-card">
+
+
+                                <div class="language-icon">
+
+                                    <i class="fas fa-comments"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Türkçe
+                                    </strong>
+
+                                    <span>
+                                        Ana dil
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="language-card">
+
+
+                                <div class="language-icon">
+
+                                    <i class="fas fa-language"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Teknik İngilizce
+                                    </strong>
+
+                                    <span>
+                                        Teknik kullanım
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- =====================================
+                         CONTACT
+                    ====================================== -->
+
+                    <article class="resume-card reveal">
+
+
+                        <div class="resume-card-header">
+
+
+                            <div class="card-icon">
+
+                                <i class="fas fa-address-card"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h2>
+                                    İletişim
+                                </h2>
+
+                                <p>
+                                    Bana ulaşabileceğin kanallar
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="contact-list">
+
+
+                            <a
+                                href="mailto:oguzsaka84@gmail.com"
+                                class="contact-box"
+                            >
+
+                                <div class="contact-box-icon">
+
+                                    <i class="fas fa-envelope"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        E-posta
+                                    </strong>
+
+                                    <span>
+                                        oguzsaka84@gmail.com
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <a
+                                href="tel:+905537283628"
+                                class="contact-box"
+                            >
+
+                                <div class="contact-box-icon">
+
+                                    <i class="fas fa-phone"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Telefon
+                                    </strong>
+
+                                    <span>
+                                        +90 553 728 3628
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                        </div>
+
+
+                    </article>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CV DOWNLOAD / VIEW
+                ================================================== -->
+
+                <div class="cv-download-section reveal">
+
+
+                    <div class="cv-download-icon">
+
+                        <i class="fas fa-file-pdf"></i>
+
+                    </div>
+
+
+                    <h2>
+
+                        Özgeçmişimi İncele
+
+                    </h2>
+
+
+                    <p>
+
+                        Daha detaylı bilgi için güncel özgeçmişimi
+                        PDF formatında görüntüleyebilir veya
+                        bilgisayarına indirebilirsin.
+
+                    </p>
+
+
+                    <div class="cv-download-buttons">
+
+
+                        <a
+                            href="cv.pdf"
+                            class="btn btn-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i class="fas fa-file-pdf"></i>
+
+                            CV'yi Görüntüle
+
+                        </a>
+
+
+                        <a
+                            href="cv.pdf"
+                            class="btn btn-secondary"
+                            download="Oguz-Saka-CV.pdf"
+                        >
+
+                            <i class="fas fa-download"></i>
+
+                            CV'yi İndir
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <section class="contact-cta">
+
+            <div class="container">
+
+
+                <div class="cta-content">
+
+
+                    <span class="section-label">
+
+                        KARİYER
+
+                    </span>
+
+
+                    <h2>
+
+                        Öğrenmeye ve
+
+                        <span>
+                            üretmeye devam.
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Yazılım geliştirme alanında kendimi geliştirmeye,
+                        yeni teknolojiler öğrenmeye ve gerçek projeler
+                        üretmeye devam ediyorum.
+
+                    </p>
+
+
+                    <div class="cta-buttons">
+
+
+                        <a
+                            href="projelerim.html"
+                            class="btn btn-light"
+                        >
+
+                            Projelerimi Gör
+
+                            <i class="fas fa-code"></i>
+
+                        </a>
+
+
+                        <a
+                            href="mailto:oguzsaka84@gmail.com"
+                            class="btn btn-outline-light"
+                        >
+
+                            İletişime Geç
+
+                            <i class="fas fa-envelope"></i>
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+
+        <div class="container footer-container">
+
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <span>O</span>
+
+                    Oğuz Saka
+
+                </a>
+
+
+                <p>
+
+                    Yazılım geliştirme yolculuğum devam ediyor.
+                    Öğrenmeye, üretmeye ve geliştirmeye devam.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+
+                <h4>
+                    Sayfalar
+                </h4>
+
+
+                <a href="index.html">
+                    Ana Sayfa
+                </a>
+
+
+                <a href="hakkimda.html">
+                    Hakkımda
+                </a>
+
+
+                <a href="projelerim.html">
+                    Projelerim
+                </a>
+
+
+                <a href="ozgecmis.html">
+                    Özgeçmiş
+                </a>
+
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+
+                <h4>
+                    İletişim
+                </h4>
+
+
+                <a
+                    href="mailto:oguzsaka84@gmail.com"
+                >
+
+                    E-posta
+
+                </a>
+
+
+                <a
+                    href="tel:+905537283628"
+                >
+
+                    Telefon
+
+                </a>
+
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Istanbul%2C%20Turkey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    İstanbul
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+
+            <div class="container">
+
+
+                <p>
+
+                    © 2026 Oğuz Saka.
+                    Tüm hakları saklıdır.
+
+                </p>
+
+
+                <p>
+
+                    İstanbul, Türkiye
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         SCROLL TOP
+    ====================================================== -->
+
+    <button
+        id="scroll-top"
+        class="scroll-top"
+        aria-label="Yukarı çık"
+        title="Yukarı çık"
+    >
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- =====================================================
+         SKILL ANIMATION
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                const progressBars =
+                    document.querySelectorAll(
+                        ".skill-progress"
+                    );
+
+
+                if (
+                    progressBars.length === 0
+                ) {
+                    return;
+                }
+
+
+                const observer =
+                    new IntersectionObserver(
+                        entries => {
+
+                            entries.forEach(
+                                entry => {
+
+                                    if (
+                                        entry.isIntersecting
+                                    ) {
+
+                                        entry.target.classList.add(
+                                            "animate"
+                                        );
+
+                                        observer.unobserve(
+                                            entry.target
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                        },
+                        {
+                            threshold: 0.3
+                        }
+                    );
+
+
+                progressBars.forEach(
+                    bar => {
+
+                        observer.observe(bar);
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
