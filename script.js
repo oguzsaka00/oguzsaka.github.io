@@ -1077,7 +1077,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             state:
-                "Proje tamamlandı. Tüm Sprint aşamaları (backend, frontend, portföy yönetimi, AI entegrasyonu, kimlik doğrulama) başarıyla uygulandı."
+                "Proje tamamlandı. Tüm Sprint aşamaları (backend, frontend, portföy yönetimi, AI entegrasyonu, kimlik doğrulama) başarıyla uygulandı.",
+
+
+            githubUrl:
+                "https://github.com/oguzsaka00"
 
         }
 
@@ -1312,6 +1316,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 modalFeatures.appendChild(
                     emptyFeature
                 );
+            }
+        }
+
+
+
+        /* ================================================
+           GITHUB LINK
+        ================================================= */
+
+        const modalLinkSection =
+            document.getElementById(
+                "project-modal-link-section"
+            );
+
+        const modalLink =
+            document.getElementById(
+                "project-modal-link"
+            );
+
+
+        if (modalLinkSection && modalLink) {
+
+            if (
+                project.githubUrl &&
+                project.githubUrl !== "#"
+            ) {
+
+                modalLink.href =
+                    project.githubUrl;
+
+                modalLinkSection.style.display =
+                    "";
+
+            } else {
+
+                modalLinkSection.style.display =
+                    "none";
             }
         }
 
