@@ -14,7 +14,7 @@
 
     <meta
         name="description"
-        content="Oğuz Saka ile iletişime geçin. E-posta, telefon, sosyal medya bağlantıları ve iletişim formu."
+        content="Oğuz Saka ile doğrudan iletişime geçin. E-posta, telefon, WhatsApp ve sosyal medya bağlantıları."
     >
 
     <meta
@@ -22,16 +22,16 @@
         content="Oğuz Saka"
     >
 
-    <!-- OPEN GRAPH / FACEBOOK -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://oguzsaka.com/iletisim.html">
     <meta property="og:title" content="İletişim | Oğuz Saka — Yazılım Geliştirici">
-    <meta property="og:description" content="Projeler, iş teklifleri veya yazılım üzerine sohbet için iletişime geçin.">
+    <meta property="og:description" content="Projeler, iş fırsatları veya yazılım üzerine sohbet için doğrudan ulaşabilirsiniz.">
 
     <!-- TWITTER -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="İletişim | Oğuz Saka">
-    <meta name="twitter:description" content="Oğuz Saka ile iletişime geçin. E-posta, telefon ve sosyal medya.">
+    <meta name="twitter:description" content="Oğuz Saka ile doğrudan iletişime geçin. E-posta, telefon ve sosyal medya.">
 
     <link
         rel="icon"
@@ -167,7 +167,7 @@
 
 <main>
 
-    <section class="section" style="padding-top:120px;">
+    <section class="section" style="padding-top:120px; padding-bottom:80px;">
 
         <div class="container">
 
@@ -182,170 +182,121 @@
                 </h1>
 
                 <p>
-                    Projeler, staj veya iş fırsatları hakkında görüşmek ya da sadece
-                    merhaba demek için dilediğiniz zaman bana ulaşabilirsiniz.
+                    Projeler, staj ve iş fırsatları veya yazılım üzerine konuşmak için
+                    aşağıdaki doğrudan kanallardan bana her zaman ulaşabilirsiniz.
                 </p>
 
             </div>
 
 
-            <div class="contact-grid">
+            <div class="contact-hub-grid reveal">
 
-                <!-- CONTACT INFO CARDS -->
-                <div class="contact-info-list reveal">
-
-                    <a
-                        href="mailto:oguzsaka84@gmail.com"
-                        class="contact-info-card"
-                    >
-                        <div class="contact-info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-info-content">
-                            <h4>E-Posta</h4>
-                            <p>oguzsaka84@gmail.com</p>
-                        </div>
-                    </a>
-
-                    <a
-                        href="tel:+905537283628"
-                        class="contact-info-card"
-                    >
-                        <div class="contact-info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-info-content">
-                            <h4>Telefon</h4>
-                            <p>+90 (553) 728 36 28</p>
-                        </div>
-                    </a>
-
-                    <div class="contact-info-card">
-                        <div class="contact-info-icon">
-                            <i class="fas fa-location-dot"></i>
-                        </div>
-                        <div class="contact-info-content">
-                            <h4>Konum</h4>
-                            <p>İstanbul, Türkiye</p>
-                        </div>
+                <!-- E-POSTA -->
+                <div class="contact-hub-card">
+                    <div class="contact-hub-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-
-                    <div class="contact-social-card">
-                        <h4>Sosyal Medya</h4>
-                        <div class="contact-social-links">
-                            <a
-                                href="https://github.com/oguzsaka00"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="contact-social-btn"
-                            >
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                            <a
-                                href="https://www.linkedin.com/in/o%C4%9Fuz-saka-72a11a365"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="contact-social-btn"
-                            >
-                                <i class="fab fa-linkedin-in"></i>
-                                LinkedIn
-                            </a>
-
-                            <a
-                                href="https://www.instagram.com/oguzsaka00/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="contact-social-btn"
-                            >
-                                <i class="fab fa-instagram"></i>
-                                Instagram
-                            </a>
-
-                            <a
-                                href="https://x.com/Oguzsk20"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="contact-social-btn"
-                            >
-                                <i class="fab fa-x-twitter"></i>
-                                X
-                            </a>
-                        </div>
+                    <h3>E-Posta</h3>
+                    <p>Sorularınız, projeler ve iş teklifleri için doğrudan e-posta gönderebilirsiniz.</p>
+                    <div class="contact-hub-actions">
+                        <a
+                            href="mailto:oguzsaka84@gmail.com"
+                            class="contact-hub-action primary"
+                        >
+                            <i class="fas fa-paper-plane"></i>
+                            oguzsaka84@gmail.com
+                        </a>
                     </div>
-
                 </div>
 
-
-                <!-- CONTACT FORM -->
-                <div class="contact-form-card reveal">
-
-                    <h3>Mesaj Gönderin</h3>
-                    <p>Formu doldurarak doğrudan bana e-posta mesajı iletebilirsiniz.</p>
-
-                    <div id="contact-alert" class="contact-alert"></div>
-
-                    <form id="contact-form" class="contact-form">
-
-                        <div class="form-group">
-                            <label for="contact-name">Adınız Soyadınız *</label>
-                            <input
-                                type="text"
-                                id="contact-name"
-                                name="name"
-                                class="form-input"
-                                placeholder="Örn: Ahmet Yılmaz"
-                                required
-                            >
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact-email">E-Posta Adresiniz *</label>
-                            <input
-                                type="email"
-                                id="contact-email"
-                                name="email"
-                                class="form-input"
-                                placeholder="Örn: ahmet@example.com"
-                                required
-                            >
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact-subject">Konu *</label>
-                            <input
-                                type="text"
-                                id="contact-subject"
-                                name="subject"
-                                class="form-input"
-                                placeholder="Örn: Proje İş Birliği"
-                                required
-                            >
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact-message">Mesajınız *</label>
-                            <textarea
-                                id="contact-message"
-                                name="message"
-                                class="form-textarea"
-                                placeholder="Mesajınızı buraya yazın..."
-                                required
-                            ></textarea>
-                        </div>
-
-                        <button
-                            type="submit"
-                            id="contact-submit"
-                            class="contact-submit-btn"
+                <!-- TELEFON & WHATSAPP -->
+                <div class="contact-hub-card">
+                    <div class="contact-hub-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telefon & WhatsApp</h3>
+                    <p>Hızlı iletişim veya anlık mesajlaşma için telefon numaram:</p>
+                    <div class="contact-hub-actions">
+                        <a
+                            href="tel:+905537283628"
+                            class="contact-hub-action primary"
                         >
-                            <span>Mesajı Gönder</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                            <i class="fas fa-phone"></i>
+                            +90 (553) 728 36 28
+                        </a>
+                        <a
+                            href="https://wa.me/905537283628"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-hub-action whatsapp"
+                        >
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp'tan Yaz
+                        </a>
+                    </div>
+                </div>
 
-                    </form>
+                <!-- KONUM -->
+                <div class="contact-hub-card">
+                    <div class="contact-hub-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <h3>Konum</h3>
+                    <p>İstanbul / Türkiye</p>
+                    <span class="contact-hub-badge">
+                        <i class="fas fa-circle-check"></i>
+                        Uzaktan (Remote) & Hibrit
+                    </span>
+                </div>
 
+                <!-- SOSYAL MEDYA & PROFESYONEL AĞLAR -->
+                <div class="contact-hub-card full-span">
+                    <div class="contact-hub-icon">
+                        <i class="fas fa-share-nodes"></i>
+                    </div>
+                    <h3>Sosyal & Profesyonel Ağlar</h3>
+                    <p>Kodlarımı, güncel projelerimi ve profesyonel paylaşımlarımı aşağıdaki profillerden inceleyebilirsiniz.</p>
+                    <div class="contact-social-links">
+                        <a
+                            href="https://github.com/oguzsaka00"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-social-btn"
+                        >
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/o%C4%9Fuz-saka-72a11a365"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-social-btn"
+                        >
+                            <i class="fab fa-linkedin-in"></i>
+                            LinkedIn
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/oguzsaka00/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-social-btn"
+                        >
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </a>
+
+                        <a
+                            href="https://x.com/Oguzsk20"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-social-btn"
+                        >
+                            <i class="fab fa-x-twitter"></i>
+                            X (Twitter)
+                        </a>
+                    </div>
                 </div>
 
             </div>
