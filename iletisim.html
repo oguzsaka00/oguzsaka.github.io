@@ -14,7 +14,7 @@
 
     <meta
         name="description"
-        content="Oğuz Saka ile doğrudan iletişime geçin. E-posta, telefon, WhatsApp ve sosyal medya bağlantıları."
+        content="Oğuz Saka ile iletişime geçin. E-posta, telefon, WhatsApp, LinkedIn ve GitHub bağlantıları."
     >
 
     <meta
@@ -27,11 +27,6 @@
     <meta property="og:url" content="https://oguzsaka.com/iletisim.html">
     <meta property="og:title" content="İletişim | Oğuz Saka — Yazılım Geliştirici">
     <meta property="og:description" content="Projeler, iş fırsatları veya yazılım üzerine sohbet için doğrudan ulaşabilirsiniz.">
-
-    <!-- TWITTER -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="İletişim | Oğuz Saka">
-    <meta name="twitter:description" content="Oğuz Saka ile doğrudan iletişime geçin. E-posta, telefon ve sosyal medya.">
 
     <link
         rel="icon"
@@ -62,8 +57,364 @@
 
     <link
         rel="stylesheet"
-        href="style.css"
+        href="style.css?v=2.2"
     >
+
+    <style>
+        .contact-page-wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 130px 20px 80px;
+        }
+
+        .contact-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .contact-hero-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        .contact-hero-title span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 580px;
+            margin: 0 auto 50px;
+            line-height: 1.65;
+        }
+
+        /* 2x2 MAIN GRID */
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .contact-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 32px 28px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 99, 235, 0.35);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .contact-card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover .contact-card-icon {
+            transform: scale(1.08);
+        }
+
+        .icon-mail {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+
+        .icon-whatsapp {
+            background: rgba(37, 211, 102, 0.12);
+            color: #16a34a;
+        }
+
+        .icon-linkedin {
+            background: rgba(10, 102, 194, 0.12);
+            color: #0a66c2;
+        }
+
+        .icon-github {
+            background: rgba(31, 41, 55, 0.1);
+            color: var(--text);
+        }
+
+        body.dark-mode .icon-github {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+
+        .contact-card-title h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text);
+            margin: 0 0 2px;
+        }
+
+        .contact-card-title span {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .contact-card-body {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .contact-card-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff !important;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
+            transition: all 0.25s ease;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .btn-action-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+            color: #ffffff !important;
+        }
+
+        .btn-action-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 18px;
+            border-radius: 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-action-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-action-whatsapp {
+            background: #25d366;
+            color: #ffffff !important;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-action-whatsapp:hover {
+            background: #20bd5a;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+            color: #ffffff !important;
+        }
+
+        .btn-action-linkedin {
+            background: #0a66c2;
+            color: #ffffff !important;
+            box-shadow: 0 4px 14px rgba(10, 102, 194, 0.3);
+        }
+
+        .btn-action-linkedin:hover {
+            background: #08529d;
+            box-shadow: 0 6px 20px rgba(10, 102, 194, 0.45);
+            color: #ffffff !important;
+        }
+
+        .btn-action-github {
+            background: #24292e;
+            color: #ffffff !important;
+            box-shadow: 0 4px 14px rgba(36, 41, 46, 0.3);
+        }
+
+        .btn-action-github:hover {
+            background: #1b1f23;
+            box-shadow: 0 6px 20px rgba(36, 41, 46, 0.45);
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .btn-action-github {
+            background: #334155;
+        }
+
+        /* BOTTOM BANNER: LOCATION & SOCIAL */
+        .contact-bottom-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 24px 30px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-location-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .contact-location-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-location-text strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .contact-location-text span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .contact-social-pills {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .social-pill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast-notify {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            background: #10b981;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            pointer-events: none;
+        }
+
+        .toast-notify.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .contact-page-wrapper {
+                padding: 100px 16px 60px;
+            }
+
+            .contact-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .contact-bottom-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -167,145 +518,239 @@
 
 <main>
 
-    <section class="section" style="padding-top:120px; padding-bottom:80px;">
+    <div class="contact-page-wrapper">
 
-        <div class="container">
+        <!-- HEADER -->
+        <div class="section-heading center" style="margin-bottom: 40px;">
 
-            <div class="section-heading center">
+            <div class="contact-hero-badge">
+                <i class="fas fa-paper-plane"></i>
+                Bana Ulaşın
+            </div>
 
-                <span class="section-label">
-                    İLETİŞİM
-                </span>
+            <h1 class="contact-hero-title">
+                Benimle <span>iletişime geçin</span>
+            </h1>
 
-                <h1>
-                    Benimle <span>iletişime geçin</span>
-                </h1>
+            <p class="contact-hero-desc">
+                Yeni projeler, staj veya iş birliği fırsatları için aşağıdaki doğrudan kanallardan dilediğiniz zaman ulaşabilirsiniz.
+            </p>
 
-                <p>
-                    Projeler, staj ve iş fırsatları veya yazılım üzerine konuşmak için
-                    aşağıdaki doğrudan kanallardan bana her zaman ulaşabilirsiniz.
-                </p>
+        </div>
+
+
+        <!-- 2x2 CONTACT CARDS -->
+        <div class="contact-cards-grid reveal">
+
+            <!-- 1. E-POSTA -->
+            <div class="contact-card">
+
+                <div class="contact-card-header">
+                    <div class="contact-card-icon icon-mail">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-card-title">
+                        <h3>E-Posta</h3>
+                        <span>Resmi & Detaylı İletişim</span>
+                    </div>
+                </div>
+
+                <div class="contact-card-body">
+                    Projeleriniz ve iş teklifleriniz için e-posta ile doğrudan iletişime geçebilirsiniz. En kısa sürede dönüş yapıyorum.
+                </div>
+
+                <div class="contact-card-actions">
+                    <a
+                        href="mailto:oguzsaka84@gmail.com"
+                        class="btn-action-primary"
+                    >
+                        <i class="fas fa-paper-plane"></i>
+                        E-posta Gönder
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn-action-secondary"
+                        onclick="copyEmail('oguzsaka84@gmail.com')"
+                        title="Adresi Kopyala"
+                    >
+                        <i class="fas fa-copy"></i>
+                        Kopyala
+                    </button>
+                </div>
 
             </div>
 
 
-            <div class="contact-hub-grid reveal">
+            <!-- 2. WHATSAPP & TELEFON -->
+            <div class="contact-card">
 
-                <!-- E-POSTA -->
-                <div class="contact-hub-card">
-                    <div class="contact-hub-icon">
-                        <i class="fas fa-envelope"></i>
+                <div class="contact-card-header">
+                    <div class="contact-card-icon icon-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3>E-Posta</h3>
-                    <p>Sorularınız, projeler ve iş teklifleri için doğrudan e-posta gönderebilirsiniz.</p>
-                    <div class="contact-hub-actions">
-                        <a
-                            href="mailto:oguzsaka84@gmail.com"
-                            class="contact-hub-action primary"
-                        >
-                            <i class="fas fa-paper-plane"></i>
-                            oguzsaka84@gmail.com
-                        </a>
+                    <div class="contact-card-title">
+                        <h3>WhatsApp & Telefon</h3>
+                        <span>Hızlı & Anlık İletişim</span>
                     </div>
                 </div>
 
-                <!-- TELEFON & WHATSAPP -->
-                <div class="contact-hub-card">
-                    <div class="contact-hub-icon">
+                <div class="contact-card-body">
+                    Hızlı mesajlaşma veya doğrudan sesli görüşme için telefon numaram üzerinden ulaşabilirsiniz.
+                </div>
+
+                <div class="contact-card-actions">
+                    <a
+                        href="https://wa.me/905537283628"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-action-primary btn-action-whatsapp"
+                    >
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp'tan Yaz
+                    </a>
+
+                    <a
+                        href="tel:+905537283628"
+                        class="btn-action-secondary"
+                        title="Hemen Ara"
+                    >
                         <i class="fas fa-phone"></i>
+                        Ara
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- 3. LINKEDIN -->
+            <div class="contact-card">
+
+                <div class="contact-card-header">
+                    <div class="contact-card-icon icon-linkedin">
+                        <i class="fab fa-linkedin-in"></i>
                     </div>
-                    <h3>Telefon & WhatsApp</h3>
-                    <p>Hızlı iletişim veya anlık mesajlaşma için telefon numaram:</p>
-                    <div class="contact-hub-actions">
-                        <a
-                            href="tel:+905537283628"
-                            class="contact-hub-action primary"
-                        >
-                            <i class="fas fa-phone"></i>
-                            +90 (553) 728 36 28
-                        </a>
-                        <a
-                            href="https://wa.me/905537283628"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="contact-hub-action whatsapp"
-                        >
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp'tan Yaz
-                        </a>
+                    <div class="contact-card-title">
+                        <h3>LinkedIn</h3>
+                        <span>Kariyer & Profesyonel Ağ</span>
                     </div>
                 </div>
 
-                <!-- KONUM -->
-                <div class="contact-hub-card">
-                    <div class="contact-hub-icon">
-                        <i class="fas fa-location-dot"></i>
-                    </div>
-                    <h3>Konum</h3>
-                    <p>İstanbul / Türkiye</p>
-                    <span class="contact-hub-badge">
-                        <i class="fas fa-circle-check"></i>
-                        Uzaktan (Remote) & Hibrit
-                    </span>
+                <div class="contact-card-body">
+                    İş deneyimlerimi, eğitim geçmişimi ve profesyonel güncellemelerimi LinkedIn profilimden takip edebilirsiniz.
                 </div>
 
-                <!-- SOSYAL MEDYA & PROFESYONEL AĞLAR -->
-                <div class="contact-hub-card full-span">
-                    <div class="contact-hub-icon">
-                        <i class="fas fa-share-nodes"></i>
+                <div class="contact-card-actions">
+                    <a
+                        href="https://www.linkedin.com/in/o%C4%9Fuz-saka-72a11a365"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-action-primary btn-action-linkedin"
+                    >
+                        <i class="fab fa-linkedin-in"></i>
+                        Profilimi İncele
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- 4. GITHUB -->
+            <div class="contact-card">
+
+                <div class="contact-card-header">
+                    <div class="contact-card-icon icon-github">
+                        <i class="fab fa-github"></i>
                     </div>
-                    <h3>Sosyal & Profesyonel Ağlar</h3>
-                    <p>Kodlarımı, güncel projelerimi ve profesyonel paylaşımlarımı aşağıdaki profillerden inceleyebilirsiniz.</p>
-                    <div class="contact-social-links">
-                        <a
-                            href="https://github.com/oguzsaka00"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="contact-social-btn"
-                        >
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
-
-                        <a
-                            href="https://www.linkedin.com/in/o%C4%9Fuz-saka-72a11a365"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="contact-social-btn"
-                        >
-                            <i class="fab fa-linkedin-in"></i>
-                            LinkedIn
-                        </a>
-
-                        <a
-                            href="https://www.instagram.com/oguzsaka00/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="contact-social-btn"
-                        >
-                            <i class="fab fa-instagram"></i>
-                            Instagram
-                        </a>
-
-                        <a
-                            href="https://x.com/Oguzsk20"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="contact-social-btn"
-                        >
-                            <i class="fab fa-x-twitter"></i>
-                            X (Twitter)
-                        </a>
+                    <div class="contact-card-title">
+                        <h3>GitHub</h3>
+                        <span>Kodlar & Açık Kaynak Projeler</span>
                     </div>
+                </div>
+
+                <div class="contact-card-body">
+                    Geliştirdiğim projelerin kaynak kodlarını, commit geçmişimi ve yazılım çalışmalarımı inceleyin.
+                </div>
+
+                <div class="contact-card-actions">
+                    <a
+                        href="https://github.com/oguzsaka00"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-action-primary btn-action-github"
+                    >
+                        <i class="fab fa-github"></i>
+                        GitHub'ı Ziyaret Et
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i>
+                    </a>
                 </div>
 
             </div>
 
         </div>
 
-    </section>
+
+        <!-- BOTTOM BANNER: LOCATION & MORE SOCIAL -->
+        <div class="contact-bottom-banner reveal">
+
+            <div class="contact-location-info">
+                <div class="contact-location-icon">
+                    <i class="fas fa-location-dot"></i>
+                </div>
+                <div class="contact-location-text">
+                    <strong>İstanbul, Türkiye</strong>
+                    <span>
+                        <i class="fas fa-circle-check"></i>
+                        Uzaktan (Remote) & Hibrit Çalışmaya Uygun
+                    </span>
+                </div>
+            </div>
+
+            <div class="contact-social-pills">
+                <a
+                    href="https://www.instagram.com/oguzsaka00/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-pill"
+                >
+                    <i class="fab fa-instagram" style="color:#e1306c;"></i>
+                    Instagram
+                </a>
+
+                <a
+                    href="https://x.com/Oguzsk20"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-pill"
+                >
+                    <i class="fab fa-x-twitter"></i>
+                    X (Twitter)
+                </a>
+
+                <a
+                    href="https://www.youtube.com/@oguzsaka1987"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-pill"
+                >
+                    <i class="fab fa-youtube" style="color:#ef4444;"></i>
+                    YouTube
+                </a>
+            </div>
+
+        </div>
+
+    </div>
 
 </main>
+
+
+<!-- TOAST NOTIFY -->
+<div id="toast-notify" class="toast-notify">
+    <i class="fas fa-check-circle"></i>
+    <span>E-posta adresi panoya kopyalandı!</span>
+</div>
 
 
 <!-- =====================================================
@@ -370,6 +815,39 @@
 
 
 <script src="script.js"></script>
+
+<script>
+    function copyEmail(email) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(email).then(() => {
+                showToast();
+            }).catch(() => {
+                fallbackCopy(email);
+            });
+        } else {
+            fallbackCopy(email);
+        }
+    }
+
+    function fallbackCopy(text) {
+        const temp = document.createElement("input");
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        showToast();
+    }
+
+    function showToast() {
+        const toast = document.getElementById("toast-notify");
+        if (!toast) return;
+        toast.classList.add("show");
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2500);
+    }
+</script>
 
 </body>
 
