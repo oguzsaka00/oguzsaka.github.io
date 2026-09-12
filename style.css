@@ -2820,19 +2820,12 @@ img {
    PAGE LOADED
 ========================================================= */
 
-body:not(.page-loaded) .site-header {
-
-    opacity:
-        0;
-}
-
-body.page-loaded .site-header {
+.site-header {
 
     opacity:
         1;
 
     transition:
-        opacity 0.4s ease,
         background 0.3s ease,
         box-shadow 0.3s ease;
 }

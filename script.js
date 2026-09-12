@@ -1604,10 +1604,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                 }
                             }
                         );
+
                     }
                 );
-            }
-    }
 
+            }
+        );
+    }
 
 });
