@@ -1081,7 +1081,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             githubUrl:
-                "https://github.com/oguzsaka00"
+                "https://www.yatirimterminali.com/"
 
         }
 
