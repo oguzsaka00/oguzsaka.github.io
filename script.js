@@ -1529,4 +1529,220 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+
+    /* =====================================================
+       PROJECT FILTERING (projelerim.html)
+    ===================================================== */
+
+    const filterButtons =
+        document.querySelectorAll(
+            ".filter-btn"
+        );
+
+    const projectCards =
+        document.querySelectorAll(
+            ".featured-project-grid .featured-project"
+        );
+
+
+    if (filterButtons.length > 0 && projectCards.length > 0) {
+
+        filterButtons.forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const targetFilter =
+                            button.getAttribute(
+                                "data-filter"
+                            );
+
+
+                        // Update active filter button
+                        filterButtons.forEach(
+                            btn =>
+                                btn.classList.remove(
+                                    "active"
+                                )
+                        );
+
+                        button.classList.add(
+                            "active"
+                        );
+
+
+                        // Filter cards
+                        projectCards.forEach(
+                            card => {
+
+                                const cardCategories =
+                                    (
+                                        card.getAttribute(
+                                            "data-category"
+                                        ) || ""
+                                    ).split(" ");
+
+
+                                if (
+                                    targetFilter === "all" ||
+                                    cardCategories.includes(
+                                        targetFilter
+                                    )
+                                ) {
+
+                                    card.classList.remove(
+                                        "filter-hidden"
+                                    );
+
+                                } else {
+
+                                    card.classList.add(
+                                        "filter-hidden"
+                                    );
+                                }
+                            }
+                        );
+                    }
+                );
+            }
+        );
+    }
+
+
+
+    /* =====================================================
+       CONTACT FORM (iletisim.html)
+    ===================================================== */
+
+    const contactForm =
+        document.getElementById(
+            "contact-form"
+        );
+
+    const contactAlert =
+        document.getElementById(
+            "contact-alert"
+        );
+
+
+    if (contactForm && contactAlert) {
+
+        contactForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                const nameInput =
+                    document.getElementById(
+                        "contact-name"
+                    );
+
+                const emailInput =
+                    document.getElementById(
+                        "contact-email"
+                    );
+
+                const subjectInput =
+                    document.getElementById(
+                        "contact-subject"
+                    );
+
+                const messageInput =
+                    document.getElementById(
+                        "contact-message"
+                    );
+
+                const submitBtn =
+                    document.getElementById(
+                        "contact-submit"
+                    );
+
+
+                const name =
+                    nameInput.value.trim();
+
+                const email =
+                    emailInput.value.trim();
+
+                const subject =
+                    subjectInput.value.trim();
+
+                const message =
+                    messageInput.value.trim();
+
+
+                if (!name || !email || !subject || !message) {
+
+                    contactAlert.className =
+                        "contact-alert error";
+
+                    contactAlert.textContent =
+                        "Lütfen tüm zorunlu alanları eksiksiz doldurun.";
+
+                    contactAlert.style.display =
+                        "flex";
+
+                    return;
+                }
+
+
+                // Format mailto body
+                const mailSubject =
+                    encodeURIComponent(
+                        `[Portföy İletişim] ${subject}`
+                    );
+
+                const mailBody =
+                    encodeURIComponent(
+                        `Gönderen: ${name} (${email})\n\nMesaj:\n${message}`
+                    );
+
+                const mailtoUrl =
+                    `mailto:oguzsaka84@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+
+                // Button state
+                const originalBtnHtml =
+                    submitBtn.innerHTML;
+
+                submitBtn.disabled = true;
+
+                submitBtn.innerHTML =
+                    '<span>Hazırlanıyor...</span> <i class="fas fa-spinner fa-spin"></i>';
+
+
+                setTimeout(
+                    () => {
+
+                        // Trigger mail client
+                        window.location.href =
+                            mailtoUrl;
+
+                        contactAlert.className =
+                            "contact-alert success";
+
+                        contactAlert.textContent =
+                            "Mesajınız hazırlandı ve e-posta istemcinize aktarıldı. Teşekkürler!";
+
+                        contactAlert.style.display =
+                            "flex";
+
+                        contactForm.reset();
+
+                        submitBtn.disabled = false;
+
+                        submitBtn.innerHTML =
+                            originalBtnHtml;
+
+                    },
+                    600
+                );
+            }
+        );
+    }
+
+
 });
