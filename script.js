@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const body =
         document.body;
 
+    if (body) {
+        body.classList.add("page-loaded");
+    }
+
     const themeToggle =
         document.getElementById(
             "theme-toggle"

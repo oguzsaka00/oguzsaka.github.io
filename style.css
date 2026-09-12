@@ -166,6 +166,12 @@ img {
 
     z-index: 1000;
 
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    display: block !important;
+
     background:
         color-mix(
             in srgb,
@@ -343,7 +349,9 @@ img {
     gap: 10px;
 }
 
+#theme-toggle,
 .theme-toggle,
+.theme-btn,
 .menu-toggle {
 
     width: 42px;
@@ -366,7 +374,9 @@ img {
     transition: var(--transition);
 }
 
+#theme-toggle:hover,
 .theme-toggle:hover,
+.theme-btn:hover,
 .menu-toggle:hover {
 
     color: white;
@@ -2796,14 +2806,14 @@ img {
 .reveal {
 
     opacity:
-        0;
+        1;
 
     transform:
-        translateY(25px);
+        translateY(0);
 
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 
 .reveal.visible {
