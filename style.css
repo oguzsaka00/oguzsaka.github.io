@@ -2259,6 +2259,79 @@ img {
 
 
 /* =========================================================
+   PROJECT LINK BUTTONS
+========================================================= */
+
+.project-modal-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 26px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-modal-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+    color: #ffffff !important;
+}
+
+.project-modal-link-btn i.fa-arrow-right {
+    transition: transform 0.3s ease;
+}
+
+.project-modal-link-btn:hover i.fa-arrow-right {
+    transform: translateX(4px);
+}
+
+.project-card-site-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 18px;
+    margin-top: 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #ffffff !important;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+    transition: all 0.3s ease;
+}
+
+.project-card-site-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+    color: #ffffff !important;
+}
+
+.project-card-site-btn span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-card-site-btn i.fa-arrow-right {
+    transition: transform 0.3s ease;
+}
+
+.project-card-site-btn:hover i.fa-arrow-right {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
    CONTACT CTA
 ========================================================= */
 
