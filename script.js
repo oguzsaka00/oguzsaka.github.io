@@ -1087,6 +1087,86 @@ document.addEventListener("DOMContentLoaded", () => {
             githubUrl:
                 "https://www.yatirimterminali.com/"
 
+        },
+
+
+        /* =================================================
+           ÖZEL GÜN HEDİYELİK
+        ================================================= */
+
+        "ozelgun-hediyelik": {
+
+            title:
+                "Özel Gün Hediyelik — Davet & Hatıra Web Kataloğu",
+
+
+            icon:
+                "fa-gifts",
+
+
+            status:
+                "Tamamlandı",
+
+
+            statusClass:
+                "completed",
+
+
+            description:
+                "Söz, nişan, kına, nikâh ve düğün gibi özel günler için kişiye özel hediyelik ve süsleme ürünlerinin sergilendiği, interaktif koleksiyon ve doğrudan WhatsApp & Instagram sipariş entegrasyonu sunan şık ve modern web platformu. Kullanıcılar ürünleri ve galeriyi detaylıca inceleyebilir, adım adım sipariş sürecini takip edebilir.",
+
+
+            purpose:
+                "Özel gün hediyelikleri ve butik tasarım ürünleri için estetik, mobil uyumlu ve modern bir dijital vitrin oluşturmak; müşterilerin koleksiyonları kolayca keşfedip hızlı sipariş vermelerini sağlayan bir web çözümü sunmak.",
+
+
+            technologies: [
+
+                "HTML5",
+
+                "CSS3",
+
+                "JavaScript (ES6+)",
+
+                "Netlify",
+
+                "Responsive UI",
+
+                "SVG Animasyon",
+
+                "WhatsApp Entegrasyonu",
+
+                "UX / UI Tasarım"
+
+            ],
+
+
+            features: [
+
+                "Özel gün koleksiyonları (Söz, Nişan, Kına, Nikâh, Düğün)",
+
+                "Dinamik ürün ve galeri listeleme (JavaScript)",
+
+                "Doğrudan WhatsApp ve Instagram DM sipariş bağlantısı",
+
+                "Adım adım sipariş akış rehberi",
+
+                "Zarif tipografi ve özel davet konsepti tasarımı",
+
+                "Mobil ve tablet uyumlu responsive arayüz",
+
+                "Netlify CDN üzerinde hızlı ve güvenilir canlı yayın"
+
+            ],
+
+
+            state:
+                "Proje başarıyla tamamlandı ve Netlify üzerinde yayına alındı. Canlı web sitesi aktif olarak hizmet vermektedir.",
+
+
+            githubUrl:
+                "https://ozelgunhediyelik.netlify.app/"
+
         }
 
     };
