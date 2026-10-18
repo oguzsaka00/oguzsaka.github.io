@@ -1160,6 +1160,36 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
 
 
+            images: [
+
+                {
+                    src: "images/ozelgun-1.jpg",
+                    caption: "Özel Gün Hediyelik — Marka & Davet Konsepti"
+                },
+
+                {
+                    src: "images/ozelgun-2.jpg",
+                    caption: "Kristal Şişe Parfüm Renk Koleksiyonu"
+                },
+
+                {
+                    src: "images/ozelgun-3.jpg",
+                    caption: "İnci Deniz Kabuğu Mum Tasarımı"
+                },
+
+                {
+                    src: "images/ozelgun-4.jpg",
+                    caption: "Kurdeleli & Taş Broşlu Cam Mum"
+                },
+
+                {
+                    src: "images/ozelgun-5.jpg",
+                    caption: "Gelin Çizimli İşlemeli Kına Mendili"
+                }
+
+            ],
+
+
             state:
                 "Proje başarıyla tamamlandı ve Netlify üzerinde yayına alındı. Canlı web sitesi aktif olarak hizmet vermektedir.",
 
@@ -1437,6 +1467,97 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 modalLinkSection.style.display =
                     "none";
+            }
+        }
+
+
+
+        /* ================================================
+           GALLERY
+        ================================================= */
+
+        const modalGallerySection =
+            document.getElementById(
+                "project-modal-gallery-section"
+            );
+
+        const modalGallery =
+            document.getElementById(
+                "project-modal-gallery"
+            );
+
+
+        if (modalGallerySection && modalGallery) {
+
+            modalGallery.innerHTML = "";
+
+            if (
+                project.images &&
+                project.images.length > 0
+            ) {
+
+                project.images.forEach(
+                    imageData => {
+
+                        const item =
+                            document.createElement("a");
+
+                        item.className =
+                            "project-modal-gallery-item";
+
+                        item.href =
+                            imageData.src;
+
+                        item.target =
+                            "_blank";
+
+                        item.rel =
+                            "noopener noreferrer";
+
+                        item.title =
+                            imageData.caption || "Büyütmek için tıkla";
+
+
+                        const img =
+                            document.createElement("img");
+
+                        img.src =
+                            imageData.src;
+
+                        img.alt =
+                            imageData.caption || project.title;
+
+                        img.loading =
+                            "lazy";
+
+
+                        item.appendChild(img);
+
+
+                        if (imageData.caption) {
+
+                            const caption =
+                                document.createElement("div");
+
+                            caption.className =
+                                "project-modal-gallery-caption";
+
+                            caption.textContent =
+                                imageData.caption;
+
+                            item.appendChild(caption);
+                        }
+
+
+                        modalGallery.appendChild(item);
+                    }
+                );
+
+                modalGallerySection.style.display = "";
+
+            } else {
+
+                modalGallerySection.style.display = "none";
             }
         }
 
